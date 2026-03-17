@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Queloric — AI & Web Development Agency</title>
+<meta name="description" content="Custom websites, AI chatbots, Telegram and Discord bots, and workflow automation. Built fast, priced fairly, starting from €50.">
+<meta property="og:title" content="Queloric — AI & Web Development Agency">
+<meta property="og:description" content="Custom websites, AI chatbots, bots and automation. Starting from €50. Live in days, not months.">
+<meta property="og:image" content="https://queloric.com/og-image.png">
+<meta property="og:url" content="https://queloric.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://queloric.com/og-image.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #0f0f0f; --dark: #1a1a1a; --mid: #4a4a4a; --muted: #888;
+  --border: #e8e8e8; --bg: #ffffff; --surface: #f8f8f8;
+  --accent: #4f46e5; --accent-light: #eef2ff; --accent-dark: #3730a3;
+  --green: #16a34a;
+}
+[data-theme="dark"] {
+  --black: #f5f5f5; --dark: #e0e0e0; --mid: #a0a0a0; --muted: #555;
+  --border: #2a2a2a; --bg: #0a0a0a; --surface: #111111;
+  --accent: #6366f1; --accent-light: #1e1b4b;
+}
+html { scroll-behavior: smooth; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--dark); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; transition: background 0.3s, color 0.3s; }
+
+#progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, var(--accent), #818cf8); z-index: 9999; border-radius: 0 2px 2px 0; pointer-events: none; }
+
+nav { position: sticky; top: 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 100; padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 64px; transition: background 0.3s, border-color 0.3s; }
+[data-theme="dark"] nav { background: rgba(10,10,10,0.96); }
+.nav-logo { font-size: 18px; font-weight: 700; color: var(--black); text-decoration: none; letter-spacing: -0.02em; flex-shrink: 0; }
+.nav-logo span { color: var(--accent); }
+.nav-center { flex: 1; display: flex; justify-content: center; }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a { font-size: 14px; color: var(--mid); text-decoration: none; transition: color 0.15s; }
+.nav-links a:hover { color: var(--black); }
+.nav-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.dark-toggle { width: 36px; height: 36px; border-radius: 8px; background: var(--surface); border: 1px solid var(--border); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: all 0.2s; color: var(--dark); }
+.dark-toggle:hover { background: var(--border); }
+.nav-cta { background: var(--accent); color: #fff !important; padding: 9px 22px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: all 0.15s; white-space: nowrap; }
+.nav-cta:hover { background: var(--accent-dark); transform: translateY(-1px); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--black); border-radius: 2px; transition: all 0.25s; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 20px 24px; z-index: 99; flex-direction: column; gap: 4px; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-size: 16px; color: var(--dark); text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.mobile-menu a:last-child { border-bottom: none; margin-top: 8px; background: var(--accent); color: #fff; text-align: center; padding: 14px; border-radius: 8px; font-weight: 500; }
+
+.wrap { max-width: 1060px; margin: 0 auto; padding: 0 48px; }
+.wrap-wide { max-width: 1160px; margin: 0 auto; padding: 0 48px; }
+section { padding: 96px 0; }
+.section-bg { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+.label { font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; display: block; }
+h1 { font-size: clamp(38px, 5.5vw, 60px); font-weight: 700; line-height: 1.08; letter-spacing: -0.03em; color: var(--black); margin-bottom: 22px; }
+h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 700; line-height: 1.12; letter-spacing: -0.025em; color: var(--black); margin-bottom: 14px; }
+h3 { font-size: 17px; font-weight: 600; color: var(--black); margin-bottom: 8px; }
+p { color: var(--mid); line-height: 1.7; }
+.highlight { color: var(--accent); }
+.painted { position: relative; display: inline; color: var(--black); }
+.painted::before { content: ''; position: absolute; bottom: -2px; left: -4px; right: -4px; height: 36%; background: rgba(79,70,229,0.15); transform: rotate(-1deg) skewX(-3deg); border-radius: 2px; z-index: -1; }
+
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 26px; border-radius: 8px; font-size: 15px; font-weight: 500; text-decoration: none; transition: all 0.15s; cursor: pointer; border: none; font-family: inherit; }
+.btn-accent { background: var(--accent); color: #fff; }
+.btn-accent:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(79,70,229,0.3); }
+.btn-outline { background: transparent; color: var(--black); border: 1px solid var(--border); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/* HERO */
+.hero { padding: 96px 48px 72px; max-width: 820px; margin: 0 auto; text-align: center; }
+.hero-rotating { height: 28px; margin-bottom: 20px; overflow: hidden; position: relative; }
+.hero-rotating-item { position: absolute; width: 100%; text-align: center; font-size: 14px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.hero-rotating-item.active { opacity: 1; transform: translateY(0); }
+.hero h1 { font-size: clamp(36px, 5vw, 56px); }
+.hero h1 .hl { color: var(--accent); }
+.hero h1 .hl-paint { background: linear-gradient(120deg, rgba(79,70,229,0.15) 0%, rgba(79,70,229,0.15) 100%) no-repeat 0 88% / 100% 35%; }
+.hero p { font-size: 18px; color: var(--mid); max-width: 540px; margin: 0 auto 36px; }
+.hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.hero-note { margin-top: 18px; font-size: 13px; color: var(--muted); }
+
+/* STATS */
+.stats-bar { background: var(--accent); padding: 32px 48px; }
+.stats-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+.stat-item { text-align: center; }
+.stat-num { font-size: 36px; font-weight: 700; color: #fff; letter-spacing: -0.03em; line-height: 1; display: block; }
+.stat-label { font-size: 13px; color: rgba(255,255,255,0.65); margin-top: 4px; display: block; }
+
+/* TRUST BAR */
+.trust-bar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); padding: 18px 48px; }
+.trust-inner { max-width: 1000px; margin: 0 auto; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.trust-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--mid); }
+.trust-item strong { color: var(--black); }
+
+/* COMPARISON — no gap, flush columns */
+.comparison-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 52px; position: relative; }
+.comp-col { padding: 40px 36px; }
+.comp-col.ours { border-top: 3px solid #16a34a; background: #f0fdf4; border-right: 1px solid var(--border); }
+[data-theme="dark"] .comp-col.ours { background: #052e16; }
+.comp-col.theirs { background: #fff5f5; border-top: 3px solid #ef4444; }
+[data-theme="dark"] .comp-col.theirs { background: #1c0a0a; }
+.comp-price { font-size: 32px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; margin-bottom: 4px; }
+.comp-col.ours .comp-price { color: #15803d; }
+.comp-col.theirs .comp-price { color: #dc2626; text-decoration: line-through; }
+.comp-sub { font-size: 13px; color: var(--muted); margin-bottom: 28px; display: block; }
+.comp-vs { display: none; }
+.vs-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 0 0 3px var(--bg); }
+.comp-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.comp-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--dark); line-height: 1.5; }
+.comp-col.theirs .comp-list li { color: var(--muted); }
+.comp-check { color: #16a34a; font-weight: 600; }
+.comp-x { color: #ef4444; font-weight: 600; }
+
+/* SERVICES */
+.services-grid { display: flex; flex-direction: column; margin-top: 52px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.service-card { display: grid; grid-template-columns: 280px 1fr; align-items: center; gap: 0; background: var(--bg); border-bottom: 1px solid var(--border); transition: background 0.2s; }
+.service-card:last-child { border-bottom: none; }
+.service-card:hover { background: var(--accent-light); }
+.service-card-left { padding: 28px 36px; display: flex; align-items: center; gap: 16px; border-right: 1px solid var(--border); height: 100%; }
+.service-card-right { padding: 28px 36px; }
+.service-icon { font-size: 22px; flex-shrink: 0; }
+.service-card-left h3 { font-size: 15px; font-weight: 600; color: var(--black); }
+.service-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+.service-tags { display: none; }
+.tag { font-size: 11px; padding: 3px 9px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; color: var(--muted); }
+.service-card.featured-service { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; padding: 48px; background: var(--black); border-color: transparent; }
+[data-theme="dark"] .service-card.featured-service { background: #111; }
+.service-card.featured-service:hover { background: #1a1a1a; }
+.service-card.featured-service h3 { font-size: 22px; color: #fff; margin-bottom: 12px; }
+.service-card.featured-service p { color: rgba(255,255,255,0.5); font-size: 15px; }
+.service-card.featured-service .tag { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.4); }
+.browser-mockup { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; }
+.browser-bar { background: rgba(255,255,255,0.07); padding: 10px 14px; display: flex; gap: 6px; align-items: center; }
+.browser-dot { width: 8px; height: 8px; border-radius: 50%; }
+.browser-url { margin-left: 8px; flex: 1; background: rgba(255,255,255,0.06); border-radius: 4px; padding: 3px 12px; font-size: 11px; color: rgba(255,255,255,0.2); }
+.browser-body { padding: 20px; }
+.skeleton { background: rgba(255,255,255,0.07); border-radius: 3px; margin-bottom: 8px; }
+
+/* BEFORE AFTER */
+.ba-section { margin-top: 52px; }
+.ba-container { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); cursor: col-resize; user-select: none; height: 380px; }
+.ba-after, .ba-before { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.ba-before { background: #e8e8e8; }
+.ba-after { background: #0f0f0f; clip-path: inset(0 50% 0 0); transition: none; }
+.ba-divider { position: absolute; top: 0; left: 50%; width: 2px; height: 100%; background: #fff; z-index: 3; pointer-events: none; }
+.ba-handle { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 40px; height: 40px; border-radius: 50%; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; z-index: 4; font-size: 14px; pointer-events: none; color: var(--accent); font-weight: 700; }
+.ba-label { position: absolute; top: 16px; padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 600; z-index: 5; pointer-events: none; }
+.ba-label.before { left: 16px; background: rgba(0,0,0,0.6); color: #fff; }
+.ba-label.after { right: 16px; background: var(--accent); color: #fff; }
+.ba-before-content { text-align: center; padding: 24px; }
+.ba-mockup-bad { background: #fff; border: 2px solid #ccc; border-radius: 4px; width: 300px; overflow: hidden; box-shadow: 2px 2px 8px rgba(0,0,0,0.2); }
+.bad-topbar { background: #ccc; padding: 6px 10px; display: flex; gap: 5px; align-items: center; }
+.bad-topbar-dot { width: 8px; height: 8px; border-radius: 50%; }
+.bad-address { flex:1; background: #fff; border-radius: 2px; padding: 2px 8px; font-size: 9px; color: #999; }
+.bad-nav { background: #1a56c4; padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; }
+.bad-nav-logo { font-size: 11px; font-weight: 900; color: #fff; font-family: serif; letter-spacing: 2px; }
+.bad-nav-links { display: flex; gap: 6px; }
+.bad-nav-link { font-size: 8px; color: rgba(255,255,255,0.7); text-decoration: underline; }
+.bad-marquee { background: #ffff00; border: 1px solid #cc0; padding: 3px 8px; font-size: 8px; color: #000; text-align: center; font-weight: bold; }
+.bad-hero { background: linear-gradient(180deg, #1a56c4, #0a2d6e); padding: 16px 12px; text-align: center; }
+.bad-hero-title { font-size: 13px; font-weight: 900; color: #ffff00; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; font-family: serif; text-shadow: 1px 1px 0 #000; }
+.bad-hero-sub { font-size: 8px; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+.bad-hero-btn { background: #ff6600; border: 2px solid #cc4400; border-radius: 2px; padding: 4px 10px; font-size: 9px; color: #fff; font-weight: 900; display: inline-block; text-transform: uppercase; }
+.bad-body { padding: 10px 12px; background: #f5f5f5; }
+.bad-counter { background: #ff0000; color: #fff; font-size: 7px; padding: 2px 6px; text-align: center; font-weight: bold; margin-bottom: 6px; }
+.bad-content-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-bottom: 6px; }
+.bad-content-box { background: #ddd; border: 1px solid #bbb; border-radius: 2px; padding: 6px 4px; text-align: center; }
+.bad-content-title { font-size: 8px; font-weight: bold; color: #333; margin-bottom: 3px; }
+.bad-content-text { font-size: 7px; color: #666; line-height: 1.3; }
+.bad-footer { background: #333; padding: 6px; text-align: center; font-size: 7px; color: #999; }
+.ba-after-content { text-align: center; padding: 24px; width: 100%; }
+.ba-mockup-good { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 0; width: 300px; margin: 0 auto; overflow: hidden; }
+.good-chrome { background: rgba(255,255,255,0.07); padding: 8px 12px; display: flex; align-items: center; gap: 6px; }
+.good-dot { width: 8px; height: 8px; border-radius: 50%; }
+.good-url { flex:1; background: rgba(255,255,255,0.06); border-radius: 4px; padding: 3px 10px; font-size: 9px; color: rgba(255,255,255,0.2); margin-left: 6px; }
+.good-nav { background: rgba(255,255,255,0.05); padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.good-logo-text { font-size: 11px; font-weight: 700; color: #fff; }
+.good-logo-text span { color: #6366f1; }
+.good-cta-btn { background: #4f46e5; border-radius: 4px; padding: 4px 10px; font-size: 8px; color: #fff; font-weight: 600; animation: pulse-accent 2s infinite; }
+.good-hero { padding: 16px 14px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.good-badge { background: rgba(99,102,241,0.3); border-radius: 10px; padding: 2px 8px; font-size: 7px; color: #a5b4fc; display: inline-block; margin-bottom: 8px; font-weight: 600; letter-spacing: 0.05em; }
+.good-title { background: rgba(255,255,255,0.15); height: 10px; width: 75%; border-radius: 3px; margin-bottom: 5px; }
+.good-sub { background: rgba(255,255,255,0.07); height: 7px; width: 55%; border-radius: 3px; margin-bottom: 5px; }
+.good-sub2 { background: rgba(255,255,255,0.04); height: 7px; width: 40%; border-radius: 3px; margin-bottom: 10px; }
+.good-btns { display: flex; gap: 6px; }
+.good-btn1 { background: #4f46e5; height: 22px; width: 80px; border-radius: 5px; animation: pulse-accent 2s infinite 0.3s; }
+.good-btn2 { background: rgba(255,255,255,0.07); height: 22px; width: 60px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.1); }
+.good-trust { padding: 5px 14px; background: rgba(79,70,229,0.15); display: flex; gap: 8px; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.good-trust span { font-size: 7px; color: rgba(255,255,255,0.35); }
+.good-services { padding: 10px 14px; }
+.good-services-label { font-size: 7px; color: #6366f1; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+.good-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; }
+.good-card { background: rgba(255,255,255,0.06); height: 36px; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; }
+.good-card-icon { font-size: 10px; }
+.good-card-line { height: 5px; width: 24px; background: rgba(255,255,255,0.1); border-radius: 2px; }
+.good-card:nth-child(1) { animation: float 3s ease-in-out infinite; }
+.good-card:nth-child(2) { animation: float 3s ease-in-out infinite 0.5s; }
+.good-card:nth-child(3) { animation: float 3s ease-in-out infinite 1s; }
+@keyframes pulse-accent { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(79,70,229,0)} 50%{opacity:0.85;box-shadow:0 0 8px 2px rgba(79,70,229,0.4)} }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px)} }
+
+/* PROJECTS CAROUSEL */
+.projects-carousel { margin-top: 52px; position: relative; }
+.carousel-track { overflow: hidden; border-radius: 12px; border: 1px solid var(--border); }
+.carousel-slide { display: none; padding: 48px 52px; background: var(--bg); }
+.carousel-slide.active { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.slide-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.slide-type { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; background: var(--surface); border: 1px solid var(--border); padding: 4px 10px; border-radius: 4px; }
+.slide-status { font-size: 11px; color: var(--green); font-weight: 500; }
+.slide-title { font-size: 28px; font-weight: 700; color: var(--black); letter-spacing: -0.02em; margin-bottom: 14px; line-height: 1.2; }
+.slide-desc { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+.slide-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.slide-visual { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 32px; display: flex; flex-direction: column; gap: 12px; }
+.slide-visual-bar { height: 8px; background: var(--border); border-radius: 4px; }
+.slide-visual-bar.accent { background: var(--accent); }
+.slide-visual-bar.short { width: 40%; }
+.slide-visual-bar.medium { width: 65%; }
+.slide-visual-bar.long { width: 85%; }
+.slide-visual-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: 8px; }
+.slide-visual-box { background: var(--border); border-radius: 6px; height: 48px; }
+.slide-visual-box.accent { background: var(--accent-light); border: 1px solid var(--accent); }
+.carousel-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 24px; }
+.carousel-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg); color: var(--mid); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: all 0.15s; }
+.carousel-btn:hover { border-color: var(--accent); color: var(--accent); }
+.carousel-dots { display: flex; gap: 8px; align-items: center; }
+.carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); cursor: pointer; transition: all 0.2s; border: none; padding: 0; }
+.carousel-dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+.carousel-cta { background: var(--accent); border-radius: 12px; padding: 32px 40px; margin-top: 2px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.carousel-cta h3 { color: #fff; font-size: 20px; margin-bottom: 6px; }
+.carousel-cta p { color: rgba(255,255,255,0.6); font-size: 14px; }
+
+/* HOW WE WORK — combined section */
+.how-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 52px; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.how-grid[style*="repeat(3"] { grid-template-columns: repeat(3,1fr); }
+.how-card { padding: 36px 28px; border-right: 1px solid var(--border); background: var(--bg); position: relative; }
+.how-card:last-child { border-right: none; }
+.how-num { font-size: 11px; font-weight: 700; color: var(--accent); margin-bottom: 16px; display: block; text-transform: uppercase; letter-spacing: 0.1em; }
+.how-card h3 { font-size: 15px; margin-bottom: 8px; }
+.how-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+.how-card .how-icon { font-size: 20px; margin-bottom: 12px; display: block; }
+
+/* PRICING */
+.pricing-block { margin-bottom: 56px; padding-bottom: 56px; border-bottom: 1px solid var(--border); }
+.pricing-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.pricing-section-title { font-size: 18px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.pricing-section-sub { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
+.pricing-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.pricing-card { border: 1px solid var(--border); border-radius: 10px; padding: 28px 24px; position: relative; background: var(--bg); }
+.pricing-card.popular { background: var(--accent); border-color: var(--accent); }
+.popular-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; }
+.pricing-tier { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; display: block; }
+.pricing-card.popular .pricing-tier { color: rgba(255,255,255,0.5); }
+.pricing-range { font-size: 28px; font-weight: 700; color: var(--black); line-height: 1; letter-spacing: -0.02em; margin-bottom: 4px; }
+.pricing-card.popular .pricing-range { color: #fff; }
+.pricing-desc { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+.pricing-card.popular .pricing-desc { color: rgba(255,255,255,0.4); }
+hr.pd { border: none; border-top: 1px solid var(--border); margin-bottom: 18px; }
+.pricing-card.popular hr.pd { border-color: rgba(255,255,255,0.2); }
+.pricing-features { list-style: none; margin-bottom: 24px; display: flex; flex-direction: column; gap: 8px; }
+.pricing-features li { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--dark); line-height: 1.5; }
+.pricing-card.popular .pricing-features li { color: rgba(255,255,255,0.75); }
+.check { color: var(--green); flex-shrink: 0; }
+.pricing-card.popular .check { color: #86efac; }
+.pricing-btn { display: block; width: 100%; padding: 11px 20px; border-radius: 8px; text-align: center; font-size: 14px; font-weight: 500; text-decoration: none; cursor: pointer; transition: all 0.15s; border: 1px solid var(--border); color: var(--black); background: var(--bg); font-family: inherit; }
+.pricing-btn:hover { border-color: var(--accent); color: var(--accent); }
+.pricing-card.popular .pricing-btn { background: #fff; color: var(--accent); border-color: #fff; }
+
+/* FAQ */
+.faq-list { margin-top: 52px; border-top: 1px solid var(--border); }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-question { width: 100%; background: none; border: none; padding: 22px 0; display: flex; align-items: center; justify-content: space-between; font-size: 16px; font-weight: 500; color: var(--black); cursor: pointer; text-align: left; gap: 20px; font-family: inherit; }
+.faq-icon { width: 22px; height: 22px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: transform 0.25s; color: var(--accent); font-size: 22px; line-height: 1; border: 1px solid var(--border); border-radius: 50%; }
+.faq-item.open .faq-icon { transform: rotate(45deg); background: var(--accent); color: #fff; border-color: var(--accent); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-answer p { padding-bottom: 22px; font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+/* CONTACT */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 52px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-group { margin-bottom: 14px; }
+.form-group label { display: block; font-size: 13px; font-weight: 500; color: var(--dark); margin-bottom: 6px; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 14px; color: var(--dark); background: var(--bg); outline: none; transition: border-color 0.15s; -webkit-appearance: none; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(79,70,229,0.1); }
+.form-group textarea { min-height: 120px; resize: vertical; }
+.form-note { font-size: 13px; color: var(--muted); margin-top: 10px; }
+.contact-info { display: flex; flex-direction: column; }
+.contact-info-item { padding: 18px 0; border-bottom: 1px solid var(--border); }
+.contact-info-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 5px; }
+.contact-info-value { font-size: 15px; color: var(--dark); }
+.contact-info-sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.quote-banner { background: var(--accent-light); border: 1px solid var(--accent); border-radius: 12px; padding: 32px 40px; margin-top: 52px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.quote-banner h3 { color: var(--accent); margin-bottom: 6px; }
+.quote-banner p { font-size: 14px; color: var(--mid); }
+
+/* CTA BANNER */
+.cta-banner { background: var(--black); padding: 88px 48px; text-align: center; }
+[data-theme="dark"] .cta-banner { background: #111; }
+.cta-banner h2 { color: #fff; margin-bottom: 14px; }
+.cta-banner p { color: rgba(255,255,255,0.5); margin-bottom: 32px; font-size: 17px; }
+.cta-badges { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-top: 22px; }
+.cta-badge { font-size: 13px; color: rgba(255,255,255,0.35); display: flex; align-items: center; gap: 6px; }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--border); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; background: var(--bg); }
+.footer-logo { font-size: 16px; font-weight: 700; color: var(--black); }
+.footer-logo span { color: var(--accent); }
+.footer-tagline { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.footer-links { display: flex; gap: 24px; list-style: none; }
+.footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+.footer-links a:hover { color: var(--accent); }
+.footer-copy { font-size: 13px; color: var(--muted); }
+
+/* COOKIE */
+.cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; background: #1a1a1a; color: #fff; padding: 16px 48px; z-index: 999; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease; }
+.cookie-banner.hidden { transform: translateY(100%); }
+.cookie-banner p { font-size: 13px; color: rgba(255,255,255,0.7) !important; line-height: 1.5; margin: 0; }
+.cookie-accept { background: var(--accent); color: #fff; border: none; border-radius: 6px; padding: 8px 20px; font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap; font-family: inherit; flex-shrink: 0; transition: opacity 0.15s; }
+.cookie-accept:hover { opacity: 0.85; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; animation: reveal-fallback 0s 2s forwards; }
+.reveal.visible { opacity: 1; transform: translateY(0); animation: none; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+@keyframes reveal-fallback { to { opacity: 1; transform: translateY(0); } }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; } .nav-center, .nav-links { display: none; } .hamburger { display: flex; }
+  .hero, .wrap, .wrap-wide { padding-left: 20px; padding-right: 20px; }
+  section { padding: 64px 0; }
+  .trust-bar { padding: 18px 20px; } .trust-inner { gap: 16px; }
+  .stats-bar { padding: 28px 20px; } .stats-inner { grid-template-columns: repeat(2,1fr); }
+  .comparison-grid { grid-template-columns: 1fr; } .comp-vs { display: none; }
+  .service-card { grid-template-columns: 1fr; }
+  .service-card-left { border-right: none; border-bottom: 1px solid var(--border); }
+  .service-card.featured-service { grid-template-columns: 1fr; padding: 32px 24px; }
+  .ba-container { height: 260px; }
+  .carousel-slide.active { grid-template-columns: 1fr; gap: 32px; }
+  .how-grid { grid-template-columns: 1fr !important; } .how-card { border-bottom: 1px solid var(--border); border-right: none !important; }
+  .pricing-cards { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 44px; }
+  .form-row { grid-template-columns: 1fr; }
+  .quote-banner { flex-direction: column; }
+  footer { flex-direction: column; align-items: flex-start; padding: 32px 20px; }
+  .cta-banner { padding: 64px 20px; }
+  .cookie-banner { flex-direction: column; padding: 16px 20px; text-align: center; }
+  .carousel-cta { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav>
+  <a href="#" class="nav-logo">Queloric<span>.</span></a>
+  <div class="nav-center">
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#how">Process</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+    <a href="/quote" class="nav-cta">Build something →</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services">Services</a>
+  <a href="#projects">Work</a>
+  <a href="#how">How it works</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#faq">FAQ</a>
+  <a href="/quote">Build something →</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-rotating" id="heroRotating">
+    <div class="hero-rotating-item active">🚀 Fast. Affordable. Professional.</div>
+    <div class="hero-rotating-item">💡 AI-powered. Built for your business.</div>
+    <div class="hero-rotating-item">⚡ Live in days. Not months.</div>
+    <div class="hero-rotating-item">🌍 Serving clients across Europe.</div>
+    <div class="hero-rotating-item">🤖 Powered by Claude AI — the best model.</div>
+  </div>
+  <h1>Your business deserves a <span class="hl-paint">great website</span> and smarter <span class="hl">automation.</span></h1>
+  <p>Custom websites, AI chatbots, Telegram and Discord bots, and workflow automation — built fast, delivered in days, starting from €50.</p>
+  <div class="hero-btns">
+    <a href="/quote" class="btn btn-accent">Get an instant quote →</a>
+    <a href="#services" class="btn btn-outline">See what we build</a>
+  </div>
+  <p class="hero-note">Takes 60 seconds. No commitment required.</p>
+</div>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><span class="stat-num" data-target="50" data-suffix="€">0</span><span class="stat-label">Starting price</span></div>
+    <div class="stat-item"><span class="stat-num" data-target="5" data-suffix=" days">0</span><span class="stat-label">Average delivery</span></div>
+    <div class="stat-item"><span class="stat-num" data-target="100" data-suffix="%">0</span><span class="stat-label">Code ownership</span></div>
+    <div class="stat-item"><span class="stat-num" data-target="24" data-suffix="/7">0</span><span class="stat-label">AI uptime</span></div>
+  </div>
+</div>
+
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">⚡ <strong>Projects from €50</strong>&nbsp;— no agency overhead</div>
+    <div class="trust-item">🚀 <strong>Live in days</strong>&nbsp;not months</div>
+    <div class="trust-item">🤖 <strong>Claude AI</strong>&nbsp;— best model available</div>
+    <div class="trust-item">📦 <strong>Full source code</strong>&nbsp;always included</div>
+    <div class="trust-item">💬 <strong>Reply within hours</strong>&nbsp;guaranteed</div>
+    <div class="trust-item">💳 <strong>Secure Stripe payments</strong>&nbsp;accepted</div>
+  </div>
+</div>
+
+<!-- COMPARISON -->
+<section>
+  <div class="wrap reveal">
+    <span class="label">Why Queloric</span>
+    <h2>Most businesses are <span class="painted">massively overpaying</span> for web development.</h2>
+    <p style="max-width:500px;">Agencies charge between &#8364;3,000 and &#8364;15,000+ for work done in days for a fraction of that. We cut the overhead, keep the quality.</p>
+    <div class="comparison-grid">
+      <div class="comp-col ours">
+        <div class="comp-price">50 – 2,500+€</div>
+        <span class="comp-sub">Scoped to your project. Fixed price. No surprises.</span>
+        <ul class="comp-list">
+          <li><span class="comp-check">✓</span> Price agreed before work starts</li>
+          <li><span class="comp-check">✓</span> Delivered in days, not months</li>
+          <li><span class="comp-check">✓</span> You own the full source code</li>
+          <li><span class="comp-check">✓</span> Claude AI — best model available</li>
+          <li><span class="comp-check">✓</span> Works on any platform</li>
+          <li><span class="comp-check">✓</span> Direct line to the developer</li>
+          <li><span class="comp-check">✓</span> Revisions included on every project</li>
+        </ul>
+      </div>
+      <div class="comp-vs"></div>
+      <div class="vs-badge">VS</div>
+      <div class="comp-col theirs">
+        <div class="comp-price">3,000 to 15,000€</div>
+        <span class="comp-sub">Typical traditional agency cost.</span>
+        <ul class="comp-list">
+          <li><span class="comp-x">✕</span> Unpredictable scope creep</li>
+          <li><span class="comp-x">✕</span> 6–12 weeks to deliver</li>
+          <li><span class="comp-x">✕</span> You don't own the code</li>
+          <li><span class="comp-x">✕</span> Generic chatbot tools</li>
+          <li><span class="comp-x">✕</span> Extra fees per platform</li>
+          <li><span class="comp-x">✕</span> Account managers and ticket queues</li>
+          <li><span class="comp-x">✕</span> Changes billed at €100–€200/hr</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section-bg" id="services">
+  <div class="wrap-wide">
+    <span class="label reveal">What we build</span>
+    <h2 class="reveal reveal-delay-1">One team. Every digital service your <span class="highlight">business actually needs.</span></h2>
+    <p class="reveal reveal-delay-2" style="max-width:520px;">Instead of hiring three different specialists at agency rates, you get one team that handles websites, AI chatbots, bots and automation.</p>
+    <div class="services-grid">
+      <div class="service-card featured-service reveal">
+        <div>
+          <span class="service-icon">🌐</span>
+          <h3>Website Design & Development</h3>
+          <p style="margin-bottom:20px;">Custom websites built from scratch — no templates, no page builders. Clean code, fast loading, mobile-first and SEO-ready from day one.</p>
+          <div class="service-tags"><span class="tag">Custom HTML/CSS</span><span class="tag">WordPress</span><span class="tag">Shopify</span><span class="tag">Landing Pages</span><span class="tag">SEO Ready</span></div>
+        </div>
+        <div class="browser-mockup">
+          <div class="browser-bar">
+            <div class="browser-dot" style="background:rgba(255,100,100,0.5);"></div>
+            <div class="browser-dot" style="background:rgba(255,200,100,0.5);"></div>
+            <div class="browser-dot" style="background:rgba(100,200,100,0.5);"></div>
+            <div class="browser-url">yourclient.com</div>
+          </div>
+          <div class="browser-body">
+            <div class="skeleton" style="height:10px;width:52%;"></div>
+            <div class="skeleton" style="height:6px;width:88%;margin-top:12px;"></div>
+            <div class="skeleton" style="height:6px;width:74%;"></div>
+            <div class="skeleton" style="height:6px;width:81%;"></div>
+            <div style="display:flex;gap:8px;margin-top:16px;">
+              <div class="skeleton" style="height:28px;width:80px;margin-bottom:0;border-radius:6px;background:rgba(79,70,229,0.4);"></div>
+              <div class="skeleton" style="height:28px;width:62px;margin-bottom:0;border-radius:6px;opacity:0.3;"></div>
+            </div>
+            <div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+              <div class="skeleton" style="height:48px;margin-bottom:0;border-radius:6px;"></div>
+              <div class="skeleton" style="height:48px;margin-bottom:0;border-radius:6px;opacity:0.6;"></div>
+              <div class="skeleton" style="height:48px;margin-bottom:0;border-radius:6px;opacity:0.4;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="service-card reveal"><div class="service-card-left"><span class="service-icon">🤖</span><h3>AI Chatbot Development</h3></div><div class="service-card-right"><p>Powered by Claude AI. A chatbot that genuinely understands your customers — not a rigid script. Handles FAQs, bookings, support queries and lead capture 24/7, without any staff needed.</p></div></div>
+      <div class="service-card reveal reveal-delay-1"><div class="service-card-left"><span class="service-icon">⚡</span><h3>Telegram & Discord Bots</h3></div><div class="service-card-right"><p>Custom bots for your community or business. Automated responses, moderation, notifications and commands — built exactly to your spec with optional Claude AI integration.</p></div></div>
+      <div class="service-card reveal reveal-delay-2"><div class="service-card-left"><span class="service-icon">🔄</span><h3>Workflow Automation</h3></div><div class="service-card-right"><p>Stop doing repetitive tasks manually. We connect your tools, automate your processes and save you hours every single week — from simple scripts to complex multi-step pipelines.</p></div></div>
+      <div class="service-card reveal"><div class="service-card-left"><span class="service-icon">🛡️</span><h3>Website Management</h3></div><div class="service-card-right"><p>Monthly maintenance handled completely. Updates, backups, security monitoring and performance checks — so your site stays fast, safe and up to date without you lifting a finger.</p></div></div>
+      <div class="service-card reveal reveal-delay-1"><div class="service-card-left"><span class="service-icon">📈</span><h3>SEO & AI Content</h3></div><div class="service-card-right"><p>On-page SEO optimisation and AI-assisted content creation. Get found on Google with proper technical foundations and content that actually ranks — without paying agency prices.</p></div></div>
+      <div class="service-card reveal reveal-delay-2"><div class="service-card-left"><span class="service-icon">🔗</span><h3>API & Backend Development</h3></div><div class="service-card-right"><p>Custom REST APIs, database integrations and backend logic. Need your app to talk to another service or a custom data pipeline built? We handle the full stack end to end.</p></div></div>
+      <div class="service-card reveal"><div class="service-card-left"><span class="service-icon">🎨</span><h3>Landing Page Design</h3></div><div class="service-card-right"><p>High-converting single-page designs for product launches, campaigns and lead generation. Fast to build, mobile-first, and optimised to turn visitors into enquiries.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE AFTER -->
+<section>
+  <div class="wrap reveal">
+    <span class="label">The difference</span>
+    <h2>Before Queloric. <span class="highlight">After Queloric.</span></h2>
+    <p style="max-width:500px;">Drag the slider to see the difference between a generic template website and a custom Queloric-built site.</p>
+    <div class="ba-section">
+      <div class="ba-container" id="baContainer">
+        <div class="ba-before">
+          <div class="ba-before-content">
+            <div class="ba-mockup-bad">
+              <div class="bad-topbar">
+                <div class="bad-topbar-dot" style="background:#ff5f57;"></div>
+                <div class="bad-topbar-dot" style="background:#febc2e;"></div>
+                <div class="bad-topbar-dot" style="background:#28c840;"></div>
+                <div class="bad-address">http://www.mybusiness.weebly.com</div>
+              </div>
+              <div class="bad-nav">
+                <div class="bad-nav-logo">MY BIZNESS™</div>
+                <div class="bad-nav-links"><span class="bad-nav-link">HOME</span><span class="bad-nav-link">ABOUT</span><span class="bad-nav-link">CONTACT</span></div>
+              </div>
+              <div class="bad-marquee">🌟 WELCOME TO OUR WEBSITE!! BEST PRICES GUARANTEED!! 🌟</div>
+              <div class="bad-hero">
+                <div class="bad-hero-title">WELCOME TO MY BIZNESS™</div>
+                <div class="bad-hero-sub">We are the #1 provider since 1998!!</div>
+                <div class="bad-hero-btn">CLICK HERE!!!</div>
+              </div>
+              <div class="bad-body">
+                <div class="bad-counter">👁 VISITOR COUNT: 000847</div>
+                <div class="bad-content-row">
+                  <div class="bad-content-box"><div class="bad-content-title">SERVICES</div><div class="bad-content-text">We offer many great services for you</div></div>
+                  <div class="bad-content-box"><div class="bad-content-title">ABOUT US</div><div class="bad-content-text">We are a company doing business things</div></div>
+                  <div class="bad-content-box"><div class="bad-content-title">CONTACT</div><div class="bad-content-text">Call us on our phone number</div></div>
+                </div>
+              </div>
+              <div class="bad-footer">© 2009 MY BIZNESS™ • Best viewed in Internet Explorer</div>
+            </div>
+          </div>
+        </div>
+        <div class="ba-after" id="baAfter">
+          <div class="ba-after-content">
+            <div class="ba-mockup-good">
+              <div class="good-chrome">
+                <div class="good-dot" style="background:rgba(255,100,100,0.4);"></div>
+                <div class="good-dot" style="background:rgba(255,200,100,0.4);"></div>
+                <div class="good-dot" style="background:rgba(100,200,100,0.4);"></div>
+                <div class="good-url">queloric.com</div>
+              </div>
+              <div class="good-nav">
+                <div class="good-logo-text">Queloric<span>.</span></div>
+                <div style="display:flex;gap:6px;"><div style="background:rgba(255,255,255,0.07);height:7px;width:22px;border-radius:2px;"></div><div style="background:rgba(255,255,255,0.07);height:7px;width:22px;border-radius:2px;"></div><div style="background:rgba(255,255,255,0.07);height:7px;width:22px;border-radius:2px;"></div></div>
+                <div class="good-cta-btn">Quote →</div>
+              </div>
+              <div class="good-hero">
+                <div class="good-badge">AI & WEB AGENCY</div>
+                <div class="good-title"></div>
+                <div class="good-sub"></div>
+                <div class="good-sub2"></div>
+                <div class="good-btns"><div class="good-btn1"></div><div class="good-btn2"></div></div>
+              </div>
+              <div class="good-trust"><span>⚡ From €50</span><span>🚀 2–5 days</span><span>📦 Own the code</span></div>
+              <div class="good-services">
+                <div class="good-services-label">Services</div>
+                <div class="good-cards">
+                  <div class="good-card"><div class="good-card-icon">🌐</div><div class="good-card-line"></div></div>
+                  <div class="good-card"><div class="good-card-icon">🤖</div><div class="good-card-line"></div></div>
+                  <div class="good-card"><div class="good-card-icon">⚡</div><div class="good-card-line"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ba-divider" id="baDivider"></div>
+        <div class="ba-handle" id="baHandle">⟺</div>
+        <div class="ba-label before">Before</div>
+        <div class="ba-label after">After</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS CAROUSEL -->
+<section class="section-bg" id="projects">
+  <div class="wrap">
+    <span class="label reveal">Recent work</span>
+    <h2 class="reveal reveal-delay-1">Projects we've delivered.</h2>
+    <p class="reveal reveal-delay-2" style="max-width:500px;">A selection of recent client projects. Every one delivered on time, on budget, with full source code handed over.</p>
+
+    <div class="projects-carousel reveal">
+      <div class="carousel-track">
+
+        <div class="carousel-slide active">
+          <div>
+            <div class="slide-meta"><span class="slide-type">Website</span><span class="slide-status">✓ Delivered</span></div>
+            <div class="slide-title">Restaurant & Booking Site</div>
+            <p class="slide-desc">Custom website with online booking system and menu management for a local restaurant. Mobile-first, SEO optimised, live in 4 days. The client saw a 40% increase in online reservations within the first month.</p>
+            <div class="slide-tags"><span class="tag">Custom HTML/CSS</span><span class="tag">Booking System</span><span class="tag">SEO</span><span class="tag">Mobile First</span></div>
+          </div>
+          <div class="slide-visual">
+            <div class="slide-visual-bar accent long"></div>
+            <div class="slide-visual-bar medium"></div>
+            <div class="slide-visual-bar short"></div>
+            <div class="slide-visual-row">
+              <div class="slide-visual-box accent"></div>
+              <div class="slide-visual-box"></div>
+              <div class="slide-visual-box"></div>
+            </div>
+            <div class="slide-visual-bar long" style="margin-top:4px;"></div>
+            <div class="slide-visual-bar medium"></div>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <div>
+            <div class="slide-meta"><span class="slide-type">AI Chatbot</span><span class="slide-status">✓ Delivered</span></div>
+            <div class="slide-title">E-commerce Support Bot</div>
+            <p class="slide-desc">Claude AI chatbot embedded into an online store handling FAQs, order tracking and returns 24/7. Cut support tickets by 60% in the first two weeks. Customers get instant answers at any hour.</p>
+            <div class="slide-tags"><span class="tag">Claude AI</span><span class="tag">Shopify</span><span class="tag">Multi-Language</span><span class="tag">Lead Capture</span></div>
+          </div>
+          <div class="slide-visual">
+            <div style="background:rgba(79,70,229,0.08);border:1px solid var(--accent);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px;">
+              <div style="background:var(--accent-light);border-radius:8px;padding:8px 12px;font-size:12px;color:var(--accent);align-self:flex-start;max-width:80%;">Hi! How can I help you today? 👋</div>
+              <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:12px;color:var(--mid);align-self:flex-end;max-width:75%;">Where is my order #1234?</div>
+              <div style="background:var(--accent-light);border-radius:8px;padding:8px 12px;font-size:12px;color:var(--accent);align-self:flex-start;max-width:85%;">Your order is on its way! Expected delivery: tomorrow ✅</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <div>
+            <div class="slide-meta"><span class="slide-type">Discord Bot</span><span class="slide-status">✓ Delivered</span></div>
+            <div class="slide-title">Community Management Bot</div>
+            <p class="slide-desc">AI-powered Discord bot for a gaming community with 2,000+ members. Handles moderation, custom commands, role management and Claude AI Q&A. Saved the admins hours of manual work every day.</p>
+            <div class="slide-tags"><span class="tag">Discord</span><span class="tag">Claude AI</span><span class="tag">Moderation</span><span class="tag">Auto Roles</span></div>
+          </div>
+          <div class="slide-visual">
+            <div class="slide-visual-bar accent medium"></div>
+            <div class="slide-visual-bar long"></div>
+            <div class="slide-visual-bar short"></div>
+            <div class="slide-visual-row">
+              <div class="slide-visual-box"></div>
+              <div class="slide-visual-box accent"></div>
+              <div class="slide-visual-box"></div>
+            </div>
+            <div class="slide-visual-bar medium" style="margin-top:4px;"></div>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <div>
+            <div class="slide-meta"><span class="slide-type">Automation</span><span class="slide-status">✓ Delivered</span></div>
+            <div class="slide-title">Lead Generation Pipeline</div>
+            <p class="slide-desc">Automated workflow connecting contact form → CRM → email → Slack notifications. Zero manual data entry, saving 3+ hours per week. Every lead instantly tracked and followed up on.</p>
+            <div class="slide-tags"><span class="tag">n8n</span><span class="tag">CRM Integration</span><span class="tag">Slack</span><span class="tag">Email</span></div>
+          </div>
+          <div class="slide-visual">
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="background:var(--accent);border-radius:6px;padding:8px 12px;font-size:12px;color:#fff;text-align:center;">📋 Contact Form</div>
+              <div style="text-align:center;color:var(--muted);font-size:18px;">↓</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                <div style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:8px;font-size:11px;color:var(--mid);text-align:center;">📊 CRM</div>
+                <div style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:8px;font-size:11px;color:var(--mid);text-align:center;">📧 Email</div>
+              </div>
+              <div style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:11px;color:var(--mid);text-align:center;">💬 Slack notification</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <div>
+            <div class="slide-meta"><span class="slide-type">Website</span><span class="slide-status">✓ Delivered</span></div>
+            <div class="slide-title">Freelancer Portfolio</div>
+            <p class="slide-desc">Clean minimal portfolio for a graphic designer. Custom animations, project gallery, contact form and blog. Delivered in 3 days. The client landed two new clients within a week of launch.</p>
+            <div class="slide-tags"><span class="tag">Custom Design</span><span class="tag">Animations</span><span class="tag">Blog</span><span class="tag">Gallery</span></div>
+          </div>
+          <div class="slide-visual">
+            <div class="slide-visual-bar accent short"></div>
+            <div class="slide-visual-bar long"></div>
+            <div class="slide-visual-bar medium"></div>
+            <div class="slide-visual-row">
+              <div class="slide-visual-box"></div>
+              <div class="slide-visual-box"></div>
+              <div class="slide-visual-box accent"></div>
+            </div>
+            <div class="slide-visual-bar short" style="margin-top:4px;"></div>
+            <div class="slide-visual-bar long"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="carousel-nav">
+        <button class="carousel-btn" id="carouselPrev">←</button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button class="carousel-btn" id="carouselNext">→</button>
+      </div>
+
+      <div class="carousel-cta">
+        <div>
+          <h3>Your project could be next.</h3>
+          <p>We're taking on new projects now. Get a fixed-price quote in 60 seconds.</p>
+        </div>
+        <a href="/quote" class="btn btn-outline" style="border-color:rgba(255,255,255,0.3);color:#fff;background:rgba(255,255,255,0.1);">Get a quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK — combined Why Us + Tech + Process -->
+<section id="how">
+  <div class="wrap">
+    <span class="label reveal">How we work</span>
+    <h2 class="reveal reveal-delay-1">Simple process. <span class="highlight">Serious results.</span></h2>
+    <p class="reveal reveal-delay-2" style="max-width:500px;">From your first message to a live product — here's what to expect when you work with Queloric.</p>
+
+    <div class="how-grid reveal" style="margin-top:52px;grid-template-columns:repeat(3,1fr);">
+      <div class="how-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div style="width:40px;height:40px;border-radius:10px;background:var(--accent-light);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">💬</div>
+          <span class="how-num" style="margin-bottom:0;">Step 01</span>
+        </div>
+        <h3>Tell us what you need</h3>
+        <p>Fill in the quote form with your project details — goals, timeline and any reference sites. The more you share, the more accurate and tailored the plan will be. We review every submission personally.</p>
+      </div>
+      <div class="how-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div style="width:40px;height:40px;border-radius:10px;background:var(--accent-light);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🤝</div>
+          <span class="how-num" style="margin-bottom:0;">Step 02</span>
+        </div>
+        <h3>We discuss and agree</h3>
+        <p>We get back to you within hours to discuss your project, clarify any details and agree on a clear plan. No vague estimates — you know exactly what you're getting before anything starts.</p>
+      </div>
+      <div class="how-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div style="width:40px;height:40px;border-radius:10px;background:var(--accent-light);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">👁️</div>
+          <span class="how-num" style="margin-bottom:0;">Step 03</span>
+        </div>
+        <h3>We deliver a preview</h3>
+        <p>Before we build your preview, we ask for a small refundable €20 deposit — just enough to ensure both sides are serious. We then deliver a working preview for you to review and approve. The €20 is fully deducted from your final price. If we can't deliver, it's refunded in full.</p>
+      </div>
+      <div class="how-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div style="width:40px;height:40px;border-radius:10px;background:var(--accent-light);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">💳</div>
+          <span class="how-num" style="margin-bottom:0;">Step 04</span>
+        </div>
+        <h3>You pay</h3>
+        <p>Once you're satisfied with the preview and we've agreed on the final price, you pay via Stripe (card, Apple Pay, Google Pay), bank transfer (IBAN) or cryptocurrency (USDT, USDC, BTC, ETH). We send an invoice for every project. Simple, secure and transparent.</p>
+      </div>
+      <div class="how-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div style="width:40px;height:40px;border-radius:10px;background:var(--accent-light);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🛠️</div>
+          <span class="how-num" style="margin-bottom:0;">Step 05</span>
+        </div>
+        <h3>We finalise the build</h3>
+        <p>Payment confirmed, we apply any final tweaks, polish every detail and prepare everything for handover. Most projects are fully completed within 2 to 5 days. We don't sit on projects.</p>
+      </div>
+      <div class="how-card">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div style="width:40px;height:40px;border-radius:10px;background:var(--accent-light);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">📦</div>
+          <span class="how-num" style="margin-bottom:0;">Step 06</span>
+        </div>
+        <h3>We deliver — you own it</h3>
+        <p>Full handover of source code, credentials and documentation. Everything is yours — host it anywhere, modify it freely, hand it to another developer if you ever need to. No lock-in. Post-delivery support included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section-bg" id="pricing">
+  <div class="wrap">
+    <span class="label reveal">Pricing</span>
+    <h2 class="reveal reveal-delay-1">Transparent ranges. <span class="highlight">Every project quoted individually.</span></h2>
+    <p class="reveal reveal-delay-2" style="max-width:560px;margin-bottom:56px;">We don't do fixed packages — every project is different. Get a quote and we'll send an exact price within hours.</p>
+
+    <div class="pricing-block">
+      <div class="pricing-section-title">🌐 Website Design & Development</div>
+      <p class="pricing-section-sub">Price depends on number of pages, complexity and features required.</p>
+      <div class="pricing-cards">
+        <div class="pricing-card"><span class="pricing-tier">Simple Website</span><div class="pricing-range">130–370€</div><p class="pricing-desc">1–3 pages</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> Custom design</li><li><span class="check">✓</span> Mobile responsive</li><li><span class="check">✓</span> Contact form</li><li><span class="check">✓</span> Basic SEO</li><li><span class="check">✓</span> 2–3 day delivery</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+        <div class="pricing-card popular"><div class="popular-badge">Most popular</div><span class="pricing-tier">Business Website</span><div class="pricing-range">370–850€</div><p class="pricing-desc">4–8 pages</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> Full custom design</li><li><span class="check">✓</span> Multiple pages</li><li><span class="check">✓</span> On-page SEO</li><li><span class="check">✓</span> Contact / booking form</li><li><span class="check">✓</span> Full source code</li><li><span class="check">✓</span> 4–6 day delivery</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+        <div class="pricing-card"><span class="pricing-tier">E-commerce / Complex</span><div class="pricing-range">850–2,300+€</div><p class="pricing-desc">Shop, bookings, custom features</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> E-commerce or booking</li><li><span class="check">✓</span> Payment integration</li><li><span class="check">✓</span> User accounts</li><li><span class="check">✓</span> Full CMS</li><li><span class="check">✓</span> Advanced SEO</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+      </div>
+    </div>
+
+    <div class="pricing-block">
+      <div class="pricing-section-title">🤖 AI Chatbot Development</div>
+      <p class="pricing-section-sub">Powered by Claude AI. Price depends on complexity and integrations.</p>
+      <div class="pricing-cards">
+        <div class="pricing-card"><span class="pricing-tier">Basic Chatbot</span><div class="pricing-range">70–140€</div><p class="pricing-desc">Simple FAQ handling</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> Embedded widget</li><li><span class="check">✓</span> Pre-set flow</li><li><span class="check">✓</span> Any platform</li><li><span class="check">✓</span> 2–3 day delivery</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+        <div class="pricing-card popular"><div class="popular-badge">Most popular</div><span class="pricing-tier">Custom Chatbot</span><div class="pricing-range">140–320€</div><p class="pricing-desc">Trained on your business</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> Trained on your content</li><li><span class="check">✓</span> Multi-language</li><li><span class="check">✓</span> Custom branded design</li><li><span class="check">✓</span> Full source code</li><li><span class="check">✓</span> Lead capture</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+        <div class="pricing-card"><span class="pricing-tier">Advanced Chatbot</span><div class="pricing-range">320–650+€</div><p class="pricing-desc">With integrations & database</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> CRM integration</li><li><span class="check">✓</span> User authentication</li><li><span class="check">✓</span> Booking / scheduling</li><li><span class="check">✓</span> Analytics dashboard</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+      </div>
+    </div>
+
+    <div class="pricing-block">
+      <div class="pricing-section-title">⚡ Telegram & Discord Bots</div>
+      <p class="pricing-section-sub">Custom bots for your community or business.</p>
+      <div class="pricing-cards">
+        <div class="pricing-card"><span class="pricing-tier">Simple Bot</span><div class="pricing-range">45–90€</div><p class="pricing-desc">Basic commands</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> Custom commands</li><li><span class="check">✓</span> Auto responses</li><li><span class="check">✓</span> Basic moderation</li><li><span class="check">✓</span> 1–2 day delivery</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+        <div class="pricing-card popular"><div class="popular-badge">Most popular</div><span class="pricing-tier">AI-Powered Bot</span><div class="pricing-range">110–280€</div><p class="pricing-desc">Intelligent responses</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> Claude AI integration</li><li><span class="check">✓</span> Custom personality</li><li><span class="check">✓</span> Command system</li><li><span class="check">✓</span> Full source code</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+        <div class="pricing-card"><span class="pricing-tier">Full-Featured Bot</span><div class="pricing-range">280–550+€</div><p class="pricing-desc">Complex integrations</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> Database integration</li><li><span class="check">✓</span> User management</li><li><span class="check">✓</span> External APIs</li><li><span class="check">✓</span> Admin dashboard</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+      </div>
+    </div>
+
+    <div class="pricing-block">
+      <div class="pricing-section-title">🔄 Other Services</div>
+      <p class="pricing-section-sub">Automation, management, SEO — all scoped per project.</p>
+      <div class="pricing-cards">
+        <div class="pricing-card"><span class="pricing-tier">Workflow Automation</span><div class="pricing-range">75–370+€</div><p class="pricing-desc">Automate repetitive tasks</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> Tool integrations</li><li><span class="check">✓</span> Custom scripts</li><li><span class="check">✓</span> Webhooks</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+        <div class="pricing-card"><span class="pricing-tier">Website Management</span><div class="pricing-range">45–140€/mo</div><p class="pricing-desc">Monthly maintenance</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> Content updates</li><li><span class="check">✓</span> Security monitoring</li><li><span class="check">✓</span> Weekly backups</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+        <div class="pricing-card"><span class="pricing-tier">SEO & Content</span><div class="pricing-range">75–280+€</div><p class="pricing-desc">Rankings and visibility</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> On-page SEO audit</li><li><span class="check">✓</span> Schema markup</li><li><span class="check">✓</span> AI content writing</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:14px;color:var(--muted);">Not sure what you need? <a href="/quote" style="color:var(--accent);font-weight:500;">Answer a few quick questions</a> and we'll recommend the right approach.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap reveal">
+    <span class="label">FAQ</span>
+    <h2>Questions we hear a lot.</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-question">How does pricing work exactly?<span class="faq-icon">+</span></button><div class="faq-answer"><p>The ranges on this page are estimates. Every project is scoped individually and we send a fixed quote before any work starts. You know the exact price before you commit.</p></div></div>
+      <div class="faq-item"><button class="faq-question">Do I own the code after delivery?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Yes, completely. Full source code is handed over on every project. You can host it anywhere, modify it, give it to another developer. Zero lock-in.</p></div></div>
+      <div class="faq-item"><button class="faq-question">What platforms does the AI chatbot work on?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Any website — WordPress, Shopify, Webflow, custom HTML. We also build for Telegram, Discord, Slack and WhatsApp.</p></div></div>
+      <div class="faq-item"><button class="faq-question">How fast is delivery really?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Most simpler projects deliver in 2–3 days. Standard websites and chatbots 3–5 days. Complex projects are scoped with a longer timeline agreed upfront. We don't miss deadlines.</p></div></div>
+      <div class="faq-item"><button class="faq-question">What AI model powers the chatbots?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Claude AI by Anthropic — the most capable and accurate large language model for natural conversation. Real, helpful answers — not frustrating dead ends.</p></div></div>
+      <div class="faq-item"><button class="faq-question">What is the €20 deposit for?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Before we invest time building your preview, we ask for a small €20 refundable deposit. This ensures both sides are serious about the project. The €20 is fully deducted from your final price — so you're not paying extra. If for any reason we can't deliver what you need, the deposit is refunded in full, no questions asked.</p></div></div>
+      <div class="faq-item"><button class="faq-question">How do I pay?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Once we agree on scope and price, we accept payment via Stripe (all major cards, Apple Pay, Google Pay), bank transfer (IBAN) or cryptocurrency (USDT, USDC, BTC or ETH). Payment is collected before work begins and we provide an invoice for every project. The initial €20 deposit is also paid this way and deducted from the final amount.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section-bg" id="contact">
+  <div class="wrap">
+    <span class="label reveal">Get in touch</span>
+    <h2 class="reveal reveal-delay-1">Tell us what you need. <span class="highlight">We'll handle the rest.</span></h2>
+    <div class="quote-banner reveal reveal-delay-2">
+      <div>
+        <h3>Want a faster, more detailed quote?</h3>
+        <p>Answer a few quick questions and get a personalised estimate in 60 seconds.</p>
+      </div>
+      <a href="/quote" class="btn btn-accent" style="white-space:nowrap;">Get instant quote →</a>
+    </div>
+    <div class="contact-grid" style="margin-top:48px;">
+      <div>
+        <form id="contactForm" action="https://send.pageclip.co/rUdgox3XHfWA6ZrLbQLhinYuhAEvD7Tl" class="pageclip-form" method="post">
+          <div class="form-row">
+            <div class="form-group"><label>Your name</label><input type="text" name="name" placeholder="John Smith" required></div>
+            <div class="form-group"><label>Email address</label><input type="email" name="email" placeholder="john@company.com" required></div>
+          </div>
+          <div class="form-group"><label>Service needed</label><select name="service" required><option value="" disabled selected>Select a service...</option><option>Website Design & Development</option><option>AI Chatbot</option><option>Telegram / Discord Bot</option><option>Workflow Automation</option><option>Website Management</option><option>SEO & Content</option><option>API / Backend Development</option><option>Something else</option></select></div>
+          <div class="form-group"><label>Budget range (optional)</label><select name="budget"><option value="" disabled selected>Select a range...</option><option>Under €100</option><option>€100–€300</option><option>€300–€600</option><option>€600–€1,000</option><option>€1,000+</option><option>Not sure yet</option></select></div>
+          <div class="form-group"><label>Tell us about your project</label><textarea name="message" placeholder="Describe what you need, your timeline, requirements and any reference links..." required></textarea></div>
+          <button type="submit" class="btn btn-accent pageclip-form__submit" style="width:100%;justify-content:center;"><span>Send message →</span></button>
+          <p class="form-note">We'll send a fixed-price quote within a few hours. No commitment required.</p>
+        </form>
+      </div>
+      <div class="contact-info">
+        <div class="contact-info-item"><div class="contact-info-label">Response time</div><div class="contact-info-value">Within a few hours</div><div class="contact-info-sub">Same day on most days</div></div>
+        <div class="contact-info-item"><div class="contact-info-label">Email us directly</div><div class="contact-info-value"><a href="/cdn-cgi/l/email-protection#a2d3d7c7cecdd0cbc1e2c5cfc3cbce8cc1cdcf" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="d9a8acbcb5b6abb0ba99beb4b8b0b5f7bab6b4">[email&#160;protected]</span></a></div><div class="contact-info-sub">We reply within a few hours</div></div>
+        <div class="contact-info-item"><div class="contact-info-label">Quote turnaround</div><div class="contact-info-value">Same day</div><div class="contact-info-sub">Detailed scope and fixed price</div></div>
+        <div class="contact-info-item"><div class="contact-info-label">Typical delivery</div><div class="contact-info-value">2–5 business days</div><div class="contact-info-sub">Depends on complexity</div></div>
+        <div class="contact-info-item"><div class="contact-info-label">Payment</div><div class="contact-info-value">Stripe, bank transfer or crypto</div><div class="contact-info-sub">Card via Stripe • IBAN • USDT, USDC, BTC, ETH</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <h2>Your competitors already have a better website. <span style="color:var(--accent);">Let's fix that.</span></h2>
+  <p>Tell us what you need and we'll send a fixed-price quote today.</p>
+  <a href="/quote" class="btn btn-accent" style="font-size:16px;padding:14px 36px;">Get an instant quote →</a>
+  <div class="cta-badges">
+    <span class="cta-badge">✓ 60 second quote</span>
+    <span class="cta-badge">✓ Fixed pricing</span>
+    <span class="cta-badge">✓ Live in days</span>
+    <span class="cta-badge">✓ You own the code</span>
+    <span class="cta-badge">✓ Projects from €50</span>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">Queloric<span>.</span></div>
+    <div class="footer-tagline">AI & Web Development Agency</div>
+    <div style="margin-top:6px;"><a href="/cdn-cgi/l/email-protection#44353121282b362d27042329252d286a272b29" style="font-size:13px;color:var(--muted);text-decoration:none;"><span class="__cf_email__" data-cfemail="4f3e3a2a23203d262c0f28222e2623612c2022">[email&#160;protected]</span></a></div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#how">Process</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Queloric. All rights reserved.</div>
+</footer>
+
+<div class="cookie-banner" id="cookieBanner">
+  <p>🍪 This site uses essential cookies to function properly. By continuing to browse you agree to their use.</p>
+  <button class="cookie-accept" id="cookieAccept">Got it</button>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+<script>
+// PROGRESS BAR
+const progressBar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.width = (window.scrollY / total * 100) + '%';
+});
+
+// DARK MODE
+const darkToggle = document.getElementById('darkToggle');
+const html = document.documentElement;
+const saved = localStorage.getItem('theme') || 'light';
+html.setAttribute('data-theme', saved);
+darkToggle.textContent = saved === 'dark' ? '☀️' : '🌙';
+darkToggle.addEventListener('click', () => {
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  darkToggle.textContent = next === 'dark' ? '☀️' : '🌙';
+});
+
+// HAMBURGER
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+document.querySelectorAll('.mobile-menu a').forEach(a => {
+  a.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); });
+});
+
+// HERO ROTATING TEXT
+const rotatingItems = document.querySelectorAll('.hero-rotating-item');
+let currentRotating = 0;
+setInterval(() => {
+  rotatingItems[currentRotating].classList.remove('active');
+  currentRotating = (currentRotating + 1) % rotatingItems.length;
+  rotatingItems[currentRotating].classList.add('active');
+}, 3000);
+
+// COUNTERS
+const counters = document.querySelectorAll('.stat-num');
+let counted = false;
+function animateCounters() {
+  if (counted) return;
+  const statsBar = document.querySelector('.stats-bar');
+  if (!statsBar) return;
+  if (statsBar.getBoundingClientRect().top < window.innerHeight) {
+    counted = true;
+    counters.forEach(el => {
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const prefix = el.dataset.prefix || '';
+      let current = 0;
+      const step = target / 50;
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = prefix + Math.round(current) + suffix;
+        if (current >= target) clearInterval(timer);
+      }, 30);    });
+  }
+}
+window.addEventListener('scroll', animateCounters);
+animateCounters();
+
+// SCROLL REVEAL
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+// BEFORE AFTER SLIDER
+const baContainer = document.getElementById('baContainer');
+const baAfter = document.getElementById('baAfter');
+const baDivider = document.getElementById('baDivider');
+const baHandle = document.getElementById('baHandle');
+let isDragging = false;
+function setSlider(x) {
+  const rect = baContainer.getBoundingClientRect();
+  let pct = Math.max(5, Math.min(95, (x - rect.left) / rect.width * 100));
+  baAfter.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+  baDivider.style.left = pct + '%';
+  baHandle.style.left = pct + '%';
+}
+baContainer.addEventListener('mousedown', e => { isDragging = true; setSlider(e.clientX); });
+window.addEventListener('mousemove', e => { if (isDragging) setSlider(e.clientX); });
+window.addEventListener('mouseup', () => isDragging = false);
+baContainer.addEventListener('touchstart', e => { isDragging = true; setSlider(e.touches[0].clientX); }, { passive: true });
+window.addEventListener('touchmove', e => { if (isDragging) setSlider(e.touches[0].clientX); }, { passive: true });
+window.addEventListener('touchend', () => isDragging = false);
+
+// CAROUSEL
+const slides = document.querySelectorAll('.carousel-slide');
+const dotsContainer = document.getElementById('carouselDots');
+let currentSlide = 0;
+let carouselTimer;
+
+slides.forEach((_, i) => {
+  const dot = document.createElement('button');
+  dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+  dot.addEventListener('click', () => goToSlide(i));
+  dotsContainer.appendChild(dot);
+});
+
+function goToSlide(index) {
+  slides[currentSlide].classList.remove('active');
+  dotsContainer.children[currentSlide].classList.remove('active');
+  currentSlide = (index + slides.length) % slides.length;
+  slides[currentSlide].classList.add('active');
+  dotsContainer.children[currentSlide].classList.add('active');
+  resetTimer();
+}
+
+function resetTimer() {
+  clearInterval(carouselTimer);
+  carouselTimer = setInterval(() => goToSlide(currentSlide + 1), 5000);
+}
+
+document.getElementById('carouselPrev').addEventListener('click', () => goToSlide(currentSlide - 1));
+document.getElementById('carouselNext').addEventListener('click', () => goToSlide(currentSlide + 1));
+resetTimer();
+
+// FAQ
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-answer').style.maxHeight = '0'; });
+    if (!isOpen) { item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+  });
+});
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// COOKIE
+const cookieBanner = document.getElementById('cookieBanner');
+if (localStorage.getItem('cookies_ok')) { cookieBanner.classList.add('hidden'); }
+document.getElementById('cookieAccept').addEventListener('click', () => {
+  localStorage.setItem('cookies_ok', '1');
+  cookieBanner.classList.add('hidden');
+});
+
+// DISCORD WEBHOOK
+const WEBHOOK = 'WEBHOOK_PLACEHOLDER';
+document.getElementById('contactForm').addEventListener('pageclip-submit', async function(e) {
+  try {
+    const d = e.detail;
+    await fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ embeds: [{ title: '📩 New Contact Form — Queloric', color: 0x4f46e5, fields: [{ name: '👤 Name', value: d.name || 'N/A', inline: true }, { name: '📧 Email', value: d.email || 'N/A', inline: true }, { name: '🛠️ Service', value: d.service || 'N/A', inline: true }, { name: '💰 Budget', value: d.budget || 'N/A', inline: true }, { name: '📝 Message', value: d.message || 'N/A' }], footer: { text: 'Queloric • queloric.com' }, timestamp: new Date().toISOString() }] }) });
+  } catch(err) {}
+});
+</script>
+</body>
+</html>
