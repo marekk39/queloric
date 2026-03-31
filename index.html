@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AI Web Development & Custom Websites — Queloric</title>
+<meta name="description" content="Custom websites, AI chatbots, Telegram and Discord bots, and workflow automation. Built fast, priced fairly, starting from 50€.">
+<meta property="og:title" content="Queloric — AI & Web Development Agency">
+<meta property="og:description" content="Custom websites, AI chatbots, bots and automation. Starting from 50€. Live in days, not months.">
+<meta property="og:image" content="https://queloric.com/og-image.png">
+<meta property="og:url" content="https://queloric.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://queloric.com/">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","name":"Queloric","url":"https://queloric.com"},{"@context":"https://schema.org","@type":"Service","name":"Custom Website Design","provider":{"@type":"Organization","name":"Queloric"},"offers":{"@type":"Offer","price":"50","priceCurrency":"EUR"}}]</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0f0f0f;--dark:#1a1a1a;--mid:#4a4a4a;--muted:#888;--border:#e8e8e8;--bg:#ffffff;--surface:#f8f8f8;--accent:#4f46e5;--accent-light:#eef2ff;--accent-dark:#3730a3;--green:#16a34a}
+[data-theme="dark"]{--black:#f5f5f5;--dark:#e0e0e0;--mid:#a0a0a0;--muted:#555;--border:#2a2a2a;--bg:#0a0a0a;--surface:#111111;--accent:#6366f1;--accent-light:#1e1b4b}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--dark);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background-color 1.2s ease}
+#progress-bar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--accent),#818cf8);z-index:9999;border-radius:0 2px 2px 0;pointer-events:none}
+
+/* ── FLOAT NAV ─────────────────────────────────────────────── */
+.float-nav-bar{position:fixed;top:20px;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 32px;pointer-events:none}
+.float-nav-bar > *{pointer-events:auto}
+.float-nav-logo-wrap{display:flex;align-items:center;gap:10px}
+.float-nav-logo{font-size:17px;font-weight:700;color:#fff;letter-spacing:-.02em;white-space:nowrap;text-decoration:none}
+[data-theme="light"] .float-nav-logo{color:#0f0f0f}
+.float-nav-logo span{color:#6366f1}
+.dark-toggle{width:34px;height:34px;border-radius:50%;background:rgba(30,30,30,.7);border:1px solid rgba(255,255,255,.2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;backdrop-filter:blur(10px);color:#fff}
+.dark-toggle:hover{background:rgba(60,60,60,.8)}
+[data-theme="light"] .dark-toggle{background:rgba(255,255,255,.9);border-color:rgba(0,0,0,.12);color:#0f0f0f}
+[data-theme="light"] .dark-toggle:hover{background:#fff}
+/* Pill */
+.float-nav-pill{display:flex;align-items:center;gap:2px;background:rgba(15,15,15,.7);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:5px 6px;border-radius:40px}
+[data-theme="light"] .float-nav-pill{background:rgba(255,255,255,.9);border-color:rgba(0,0,0,.1)}
+/* Nav links */
+.float-nav-link{font-size:13px;font-weight:500;color:rgba(255,255,255,.55);text-decoration:none;padding:7px 13px;border-radius:30px;transition:color .15s,background .15s;position:relative;white-space:nowrap}
+.float-nav-link:hover{color:#fff;background:rgba(255,255,255,.08)}
+.float-nav-link.fnl-active{color:#fff;background:rgba(99,102,241,.18)}
+[data-theme="light"] .float-nav-link{color:rgba(15,15,15,.5)}
+[data-theme="light"] .float-nav-link:hover{color:#0f0f0f;background:rgba(0,0,0,.05)}
+[data-theme="light"] .float-nav-link.fnl-active{color:#4f46e5;background:rgba(79,70,229,.08)}
+.float-nav-aff{color:rgba(99,102,241,.85)!important;font-weight:600}
+.float-nav-aff:hover{background:rgba(99,102,241,.12)!important}
+/* CTA button */
+.float-nav-cta{background:#4f46e5;color:#fff!important;padding:9px 20px;border-radius:30px;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap}
+.float-nav-cta:hover{background:#4338ca}
+/* Mascot */
+.nav-mascot-wrap{position:absolute;top:-52px;left:50%;transform:translateX(-50%);pointer-events:none;opacity:0;transition:opacity .2s}
+.float-nav-link.fnl-active .nav-mascot-wrap{opacity:1}
+.mascot-body{width:32px;height:32px;background:#fff;border-radius:50%;position:relative}
+.mascot-eye{position:absolute;width:5px;height:5px;background:#111;border-radius:50%;top:38%}
+.mascot-eye-l{left:22%}.mascot-eye-r{right:22%}
+.mascot-cheek{position:absolute;width:5px;height:3px;background:#ffb3c6;border-radius:50%;top:55%}
+.mascot-cheek-l{left:12%}.mascot-cheek-r{right:12%}
+.mascot-tail{width:9px;height:9px;background:#fff;transform:rotate(45deg);position:absolute;bottom:-5px;left:50%;margin-left:-4.5px}
+/* Mobile */
+.fn-hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:8px;background:rgba(15,15,15,.7);border:1px solid rgba(255,255,255,.15);border-radius:10px;backdrop-filter:blur(12px)}
+.fn-hamburger span{display:block;width:18px;height:2px;background:rgba(255,255,255,.7);border-radius:2px}
+.fn-mobile{display:none;position:fixed;top:74px;left:50%;transform:translateX(-50%);background:rgba(10,10,10,.96);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:10px;min-width:200px;z-index:199;flex-direction:column;gap:2px;backdrop-filter:blur(16px)}
+.fn-mobile.open{display:flex}
+.fn-mobile a{font-size:14px;color:rgba(255,255,255,.7);text-decoration:none;padding:10px 14px;border-radius:10px}
+.fn-mobile a:hover{background:rgba(255,255,255,.07);color:#fff}
+.fn-mobile .fn-m-cta{background:#4f46e5;color:#fff;text-align:center;margin-top:4px}
+@media(max-width:820px){.fn-links-wrap,.float-nav-pill{display:none!important}.fn-hamburger{display:flex}.float-nav-cta{display:none!important}}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+/* ── HERO (clean) ────────────────────────────────────────── */
+.hero-section{
+  background:var(--bg);
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.hero-section::before{
+  content:'';
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(99,102,241,.1) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(99,102,241,.1) 1px,transparent 1px);
+  background-size:48px 48px;
+  pointer-events:none;
+  z-index:0;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%);
+}
+[data-theme="light"] .hero-section::before{
+  background-image:
+    linear-gradient(rgba(79,70,229,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(79,70,229,.07) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+.hero{
+  padding:140px 48px 100px;
+  max-width:800px;margin:0 auto;
+  text-align:center;position:relative;z-index:1;
+}
+.hero-rotating{height:28px;margin-bottom:20px;overflow:hidden;position:relative}
+.hero-rotating-item{
+  position:absolute;width:100%;text-align:center;
+  font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);opacity:0;transform:translateY(8px);
+  transition:opacity .5s,transform .5s;
+}
+.hero-rotating-item.active{opacity:1;transform:translateY(0)}
+.hero h1{
+  font-size:clamp(38px,5.5vw,62px);font-weight:700;
+  line-height:1.07;letter-spacing:-.03em;
+  color:var(--black);margin-bottom:22px;
+}
+.hero p{
+  font-size:18px;color:var(--mid);
+  max-width:520px;margin:0 auto 36px;line-height:1.7;
+}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.hero-note{margin-top:18px;font-size:13px;color:var(--muted)}
+.hl{color:var(--accent)}
+.hl-paint{
+  background:linear-gradient(120deg,rgba(79,70,229,.14) 0%,rgba(79,70,229,.14) 100%)
+    no-repeat 0 88%/100% 35%;
+}
+@media(max-width:768px){
+  .hero{padding:110px 24px 80px}
+  .hero-btns{flex-direction:column;align-items:center}
+}
+/* ── LAYOUT ─────────────────────────────────────────────────── */
+.wrap{max-width:1060px;margin:0 auto;padding:0 48px}
+.wrap-wide{max-width:1160px;margin:0 auto;padding:0 48px}
+section{padding:96px 0}
+.section-bg{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.label{font-size:12px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;display:block}
+h2{font-size:clamp(28px,4vw,42px);font-weight:700;line-height:1.12;letter-spacing:-.025em;color:var(--black);margin-bottom:14px}
+h3{font-size:17px;font-weight:600;color:var(--black);margin-bottom:8px}
+p{color:var(--mid);line-height:1.7}
+.highlight{color:var(--accent)}
+.painted{position:relative;display:inline;color:var(--black)}
+.painted::before{content:'';position:absolute;bottom:-2px;left:-4px;right:-4px;height:36%;background:rgba(79,70,229,.15);transform:rotate(-1deg) skewX(-3deg);border-radius:2px;z-index:-1}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:8px;font-size:15px;font-weight:500;text-decoration:none;transition:all .15s;cursor:pointer;border:none;font-family:inherit}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-accent:hover{background:var(--accent-dark)}
+.btn-outline{background:transparent;color:var(--black);border:1px solid var(--border);transition:border-color .15s,color .15s}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── STATS ─────────────────────────────────────────────────── */
+.stats-bar{background:var(--accent);padding:32px 48px}
+.stats-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat-item{text-align:center}
+.stat-num{font-size:36px;font-weight:700;color:#fff;letter-spacing:-.03em;line-height:1;display:block}
+.stat-label{font-size:13px;color:rgba(255,255,255,.65);margin-top:4px;display:block}
+
+/* ── TRUST BAR ──────────────────────────────────────────────── */
+.trust-bar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface);padding:18px 48px}
+.trust-inner{max-width:1000px;margin:0 auto;display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--mid)}
+.trust-item strong{color:var(--black)}
+
+/* ── COMPARISON ─────────────────────────────────────────────── */
+.comparison-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:52px;position:relative}
+.comp-col{padding:40px 36px}
+.comp-col.ours{border-top:3px solid #16a34a;background:#f0fdf4;border-right:1px solid var(--border)}
+[data-theme="dark"] .comp-col.ours{background:#052e16}
+.comp-col.theirs{background:#fff5f5;border-top:3px solid #ef4444}
+[data-theme="dark"] .comp-col.theirs{background:#1c0a0a}
+.comp-price{font-size:32px;font-weight:700;letter-spacing:-.03em;line-height:1;margin-bottom:4px}
+.comp-col.ours .comp-price{color:#15803d}
+.comp-col.theirs .comp-price{color:#dc2626;text-decoration:line-through}
+.comp-sub{font-size:13px;color:var(--muted);margin-bottom:28px;display:block}
+.vs-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 0 0 3px var(--bg)}
+.comp-list{list-style:none;display:flex;flex-direction:column;gap:11px}
+.comp-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--dark);line-height:1.5}
+.comp-col.theirs .comp-list li{color:var(--muted)}
+.comp-check{color:#16a34a;font-weight:600}.comp-x{color:#ef4444;font-weight:600}
+
+/* ── SERVICES ───────────────────────────────────────────────── */
+.services-list{display:flex;flex-direction:column;margin-top:52px;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.service-row{display:grid;grid-template-columns:280px 1fr;align-items:center;background:var(--bg);border-bottom:1px solid var(--border);transition:background .2s}
+.service-row:last-child{border-bottom:none}
+.service-row:hover{background:var(--accent-light)}
+.service-row-left{padding:28px 36px;display:flex;align-items:center;gap:16px;border-right:1px solid var(--border);height:100%}
+.service-row-right{padding:28px 36px}
+.service-icon{font-size:22px;flex-shrink:0}
+.service-row-left h3{font-size:15px;font-weight:600;color:var(--black)}
+.service-row p{font-size:14px;color:var(--muted);line-height:1.65}
+.service-featured{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;padding:48px;background:var(--black);border-bottom:1px solid var(--border)}
+[data-theme="dark"] .service-featured{background:#111}
+.service-featured:hover{background:#1a1a1a}
+.service-featured h3{font-size:22px;color:#fff;margin-bottom:12px}
+.service-featured p{color:rgba(255,255,255,.5);font-size:15px}
+.browser-mockup{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;overflow:hidden}
+.browser-bar{background:rgba(255,255,255,.07);padding:10px 14px;display:flex;gap:6px;align-items:center}
+.browser-dot{width:8px;height:8px;border-radius:50%}
+.browser-url{margin-left:8px;flex:1;background:rgba(255,255,255,.06);border-radius:4px;padding:3px 12px;font-size:11px;color:rgba(255,255,255,.2)}
+.browser-body{padding:20px}
+.skeleton{background:rgba(255,255,255,.07);border-radius:3px;margin-bottom:8px}
+
+/* ── BEFORE/AFTER ───────────────────────────────────────────── */
+.ba-section{margin-top:52px}
+.ba-container{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--border);cursor:col-resize;user-select:none;height:380px}
+.ba-after,.ba-before{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.ba-before{background:#e8e8e8}
+.ba-after{background:#0f0f0f;clip-path:inset(0 50% 0 0)}
+.ba-divider{position:absolute;top:0;left:50%;width:2px;height:100%;background:#fff;z-index:3;pointer-events:none}
+.ba-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;z-index:4;font-size:14px;pointer-events:none;color:var(--accent);font-weight:700}
+.ba-label{position:absolute;top:16px;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;z-index:5;pointer-events:none}
+.ba-label.before{left:16px;background:rgba(0,0,0,.6);color:#fff}
+.ba-label.after{right:16px;background:var(--accent);color:#fff}
+/* before/after mockup styles */
+.ba-before-content{text-align:center;padding:24px}
+.ba-mockup-bad{background:#fff;border:2px solid #ccc;border-radius:4px;width:300px;overflow:hidden;box-shadow:2px 2px 8px rgba(0,0,0,.2)}
+.bad-topbar{background:#ccc;padding:6px 10px;display:flex;gap:5px;align-items:center}
+.bad-topbar-dot{width:8px;height:8px;border-radius:50%}
+.bad-address{flex:1;background:#fff;border-radius:2px;padding:2px 8px;font-size:9px;color:#999}
+.bad-nav{background:#1a56c4;padding:8px 12px;display:flex;align-items:center;justify-content:space-between}
+.bad-nav-logo{font-size:11px;font-weight:900;color:#fff;font-family:serif;letter-spacing:2px}
+.bad-nav-links{display:flex;gap:6px}
+.bad-nav-link{font-size:8px;color:rgba(255,255,255,.7);text-decoration:underline}
+.bad-marquee{background:#ffff00;border:1px solid #cc0;padding:3px 8px;font-size:8px;color:#000;text-align:center;font-weight:bold}
+.bad-hero{background:linear-gradient(180deg,#1a56c4,#0a2d6e);padding:16px 12px;text-align:center}
+.bad-hero-title{font-size:13px;font-weight:900;color:#ffff00;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;font-family:serif;text-shadow:1px 1px 0 #000}
+.bad-hero-sub{font-size:8px;color:rgba(255,255,255,.6);margin-bottom:8px}
+.bad-hero-btn{background:#ff6600;border:2px solid #cc4400;border-radius:2px;padding:4px 10px;font-size:9px;color:#fff;font-weight:900;display:inline-block;text-transform:uppercase}
+.bad-body{padding:10px 12px;background:#f5f5f5}
+.bad-counter{background:#ff0000;color:#fff;font-size:7px;padding:2px 6px;text-align:center;font-weight:bold;margin-bottom:6px}
+.bad-content-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:6px}
+.bad-content-box{background:#ddd;border:1px solid #bbb;border-radius:2px;padding:6px 4px;text-align:center}
+.bad-content-title{font-size:8px;font-weight:bold;color:#333;margin-bottom:3px}
+.bad-content-text{font-size:7px;color:#666;line-height:1.3}
+.bad-footer{background:#333;padding:6px;text-align:center;font-size:7px;color:#999}
+.ba-after-content{text-align:center;padding:24px;width:100%}
+.ba-mockup-good{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;width:300px;margin:0 auto;overflow:hidden}
+.good-chrome{background:rgba(255,255,255,.07);padding:8px 12px;display:flex;align-items:center;gap:6px}
+.good-dot{width:8px;height:8px;border-radius:50%}
+.good-url{flex:1;background:rgba(255,255,255,.06);border-radius:4px;padding:3px 10px;font-size:9px;color:rgba(255,255,255,.2);margin-left:6px}
+.good-nav{background:rgba(255,255,255,.05);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06)}
+.good-logo-text{font-size:11px;font-weight:700;color:#fff}
+.good-logo-text span{color:#6366f1}
+.good-cta-btn{background:#4f46e5;border-radius:4px;padding:4px 10px;font-size:8px;color:#fff;font-weight:600;animation:pulse-accent 2s infinite}
+.good-hero{padding:16px 14px;border-bottom:1px solid rgba(255,255,255,.06)}
+.good-badge{background:rgba(99,102,241,.3);border-radius:10px;padding:2px 8px;font-size:7px;color:#a5b4fc;display:inline-block;margin-bottom:8px;font-weight:600;letter-spacing:.05em}
+.good-title{background:rgba(255,255,255,.15);height:10px;width:75%;border-radius:3px;margin-bottom:5px}
+.good-sub{background:rgba(255,255,255,.07);height:7px;width:55%;border-radius:3px;margin-bottom:5px}
+.good-sub2{background:rgba(255,255,255,.04);height:7px;width:40%;border-radius:3px;margin-bottom:10px}
+.good-btns{display:flex;gap:6px}
+.good-btn1{background:#4f46e5;height:22px;width:80px;border-radius:5px;animation:pulse-accent 2s infinite .3s}
+.good-btn2{background:rgba(255,255,255,.07);height:22px;width:60px;border-radius:5px;border:1px solid rgba(255,255,255,.1)}
+.good-trust{padding:5px 14px;background:rgba(79,70,229,.15);display:flex;gap:8px;justify-content:center;border-bottom:1px solid rgba(255,255,255,.06)}
+.good-trust span{font-size:7px;color:rgba(255,255,255,.35)}
+.good-services{padding:10px 14px}
+.good-services-label{font-size:7px;color:#6366f1;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.good-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.good-card{background:rgba(255,255,255,.06);height:36px;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
+.good-card-icon{font-size:10px}
+.good-card-line{height:5px;width:24px;background:rgba(255,255,255,.1);border-radius:2px}
+.good-card:nth-child(1){animation:float 3s ease-in-out infinite}
+.good-card:nth-child(2){animation:float 3s ease-in-out infinite .5s}
+.good-card:nth-child(3){animation:float 3s ease-in-out infinite 1s}
+@keyframes pulse-accent{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(79,70,229,0)}50%{opacity:.85;box-shadow:0 0 8px 2px rgba(79,70,229,.4)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+
+/* ── SITE PREVIEW / CAROUSEL ────────────────────────────────── */
+.site-preview{border-radius:8px;overflow:hidden;border:1px solid var(--border);box-shadow:0 4px 24px rgba(0,0,0,.08)}
+.site-chrome{background:var(--surface);padding:8px 12px;display:flex;align-items:center;gap:6px;border-bottom:1px solid var(--border)}
+.site-dot{width:8px;height:8px;border-radius:50%}
+.site-url{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:2px 10px;font-size:10px;color:var(--muted);margin-left:6px}
+.projects-carousel{margin-top:52px;position:relative}
+.carousel-track{overflow:hidden;border-radius:12px;border:1px solid var(--border)}
+.carousel-slide{display:none;padding:48px 52px;background:var(--bg)}
+.carousel-slide.active{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.slide-meta{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.slide-type{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;background:var(--surface);border:1px solid var(--border);padding:4px 10px;border-radius:4px}
+.slide-status{font-size:11px;color:var(--green);font-weight:500}
+.slide-title{font-size:28px;font-weight:700;color:var(--black);letter-spacing:-.02em;margin-bottom:14px;line-height:1.2}
+.slide-desc{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:24px}
+.slide-tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:11px;padding:3px 9px;background:var(--surface);border:1px solid var(--border);border-radius:4px;color:var(--muted)}
+.carousel-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px}
+.carousel-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:var(--bg);color:var(--mid);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .15s}
+.carousel-btn:hover{border-color:var(--accent);color:var(--accent)}
+.carousel-dots{display:flex;gap:8px;align-items:center}
+.carousel-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:all .2s;border:none;padding:0}
+.carousel-dot.active{background:var(--accent);width:24px;border-radius:4px}
+.carousel-cta{background:var(--accent);border-radius:12px;padding:32px 40px;margin-top:2px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.carousel-cta h3{color:#fff;font-size:20px;margin-bottom:6px}
+.carousel-cta p{color:rgba(255,255,255,.6);font-size:14px}
+
+/* ── HOW WE WORK ────────────────────────────────────────────── */
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:52px;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.how-card{padding:36px 28px;border-right:1px solid var(--border);background:var(--bg)}
+.how-card:last-child{border-right:none}
+.how-num{font-size:11px;font-weight:700;color:var(--accent);margin-bottom:16px;display:block;text-transform:uppercase;letter-spacing:.1em}
+.how-card h3{font-size:15px;margin-bottom:8px}
+.how-card p{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* ── PRICING ────────────────────────────────────────────────── */
+.pricing-block{margin-bottom:56px;padding-bottom:56px;border-bottom:1px solid var(--border)}
+.pricing-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.pricing-section-title{font-size:18px;font-weight:600;color:var(--black);margin-bottom:4px}
+.pricing-section-sub{font-size:14px;color:var(--muted);margin-bottom:24px}
+.pricing-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pricing-card{border:1px solid var(--border);border-radius:10px;padding:28px 24px;position:relative;background:var(--bg)}
+.pricing-card.popular{background:var(--accent);border-color:var(--accent)}
+.popular-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.pricing-tier{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;display:block}
+.pricing-card.popular .pricing-tier{color:rgba(255,255,255,.5)}
+.pricing-range{font-size:28px;font-weight:700;color:var(--black);line-height:1;letter-spacing:-.02em;margin-bottom:4px}
+.pricing-card.popular .pricing-range{color:#fff}
+.pricing-desc{font-size:13px;color:var(--muted);margin-bottom:20px}
+.pricing-card.popular .pricing-desc{color:rgba(255,255,255,.4)}
+hr.pd{border:none;border-top:1px solid var(--border);margin-bottom:18px}
+.pricing-card.popular hr.pd{border-color:rgba(255,255,255,.2)}
+.pricing-features{list-style:none;margin-bottom:24px;display:flex;flex-direction:column;gap:8px}
+.pricing-features li{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--dark);line-height:1.5}
+.pricing-card.popular .pricing-features li{color:rgba(255,255,255,.75)}
+.check{color:var(--green);flex-shrink:0}
+.pricing-card.popular .check{color:#86efac}
+.pricing-btn{display:block;width:100%;padding:11px 20px;border-radius:8px;text-align:center;font-size:14px;font-weight:500;text-decoration:none;cursor:pointer;transition:all .15s;border:1px solid var(--border);color:var(--black);background:var(--bg);font-family:inherit}
+.pricing-btn:hover{border-color:var(--accent);color:var(--accent)}
+.pricing-card.popular .pricing-btn{background:#fff;color:var(--accent);border-color:#fff}
+
+/* ── TESTIMONIALS ───────────────────────────────────────────── */
+.testimonials-section{padding:88px 0;overflow:hidden;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.testimonials-track-wrap{position:relative;width:100%;overflow:hidden}
+.testimonials-track-wrap::before,.testimonials-track-wrap::after{content:'';position:absolute;top:0;bottom:0;width:180px;z-index:2;pointer-events:none}
+.testimonials-track-wrap::before{left:0;background:linear-gradient(to right,var(--surface),transparent)}
+.testimonials-track-wrap::after{right:0;background:linear-gradient(to left,var(--surface),transparent)}
+.testimonials-track{display:flex;gap:16px;width:max-content;animation:marquee-scroll 55s linear infinite}
+.testimonials-track:hover{animation-play-state:paused}
+.testimonial-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:24px;width:320px;flex-shrink:0;transition:border-color .2s,box-shadow .2s}
+.testimonial-card:hover{border-color:var(--accent);box-shadow:0 4px 20px rgba(99,102,241,.1)}
+.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0;margin-right:12px}
+.testimonial-name{font-size:14px;font-weight:600;color:var(--black);margin-bottom:2px}
+.testimonial-handle{font-size:12px;color:var(--muted)}
+.testimonial-stars{color:#f59e0b;font-size:12px;margin-bottom:10px;letter-spacing:1px}
+.testimonial-text{font-size:14px;color:var(--mid);line-height:1.65}
+@keyframes marquee-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── FAQ ────────────────────────────────────────────────────── */
+.faq-list{margin-top:52px;border-top:1px solid var(--border)}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-question{width:100%;background:none;border:none;padding:22px 0;display:flex;align-items:center;justify-content:space-between;font-size:16px;font-weight:500;color:var(--black);cursor:pointer;text-align:left;gap:20px;font-family:inherit}
+.faq-icon{width:22px;height:22px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:transform .25s;color:var(--accent);font-size:22px;line-height:1;border:1px solid var(--border);border-radius:50%}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--accent);color:#fff;border-color:var(--accent)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-answer p{padding-bottom:22px;font-size:15px;color:var(--muted);line-height:1.7}
+
+/* ── CONTACT ────────────────────────────────────────────────── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:52px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:13px;font-weight:500;color:var(--dark);margin-bottom:6px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:14px;color:var(--dark);background:var(--bg);outline:none;transition:border-color .15s;-webkit-appearance:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.1)}
+.form-group textarea{min-height:120px;resize:vertical}
+.form-note{font-size:13px;color:var(--muted);margin-top:10px}
+.contact-info{display:flex;flex-direction:column}
+.contact-info-item{padding:18px 0;border-bottom:1px solid var(--border)}
+.contact-info-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:5px}
+.contact-info-value{font-size:15px;color:var(--dark)}
+.contact-info-sub{font-size:13px;color:var(--muted);margin-top:2px}
+.quote-banner{background:var(--accent-light);border:1px solid var(--accent);border-radius:12px;padding:32px 40px;margin-top:52px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.quote-banner h3{color:var(--accent);margin-bottom:6px}
+.quote-banner p{font-size:14px;color:var(--mid)}
+
+/* ── CTA BANNER ─────────────────────────────────────────────── */
+.cta-banner{background:var(--black);padding:88px 48px;text-align:center}
+[data-theme="dark"] .cta-banner{background:#111}
+.cta-banner h2{color:#fff;margin-bottom:14px}
+.cta-banner p{color:rgba(255,255,255,.5);margin-bottom:32px;font-size:17px}
+.cta-badges{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.cta-badge{font-size:13px;color:rgba(255,255,255,.35);display:flex;align-items:center;gap:6px}
+
+/* ── AFFILIATE ──────────────────────────────────────────────── */
+.affiliate-aurora{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.affiliate-aurora-layer{position:absolute;inset:-40%;width:180%;height:180%;background:repeating-linear-gradient(100deg,rgba(99,102,241,.07) 0%,rgba(99,102,241,.07) 7%,transparent 10%,transparent 12%,rgba(129,140,248,.05) 16%),repeating-linear-gradient(100deg,rgba(79,70,229,.09) 10%,rgba(165,180,252,.06) 15%,rgba(99,102,241,.07) 20%,rgba(196,181,253,.05) 25%,rgba(79,70,229,.08) 30%);background-size:300% 200%;animation:aurora-move 20s linear infinite;filter:blur(18px);mask-image:radial-gradient(ellipse at 60% 0%,black 10%,transparent 65%);opacity:.8}
+.affiliate-aurora-layer-2{animation-duration:28s;animation-direction:reverse;mask-image:radial-gradient(ellipse at 30% 100%,black 5%,transparent 55%);opacity:.5}
+@keyframes aurora-move{from{background-position:50% 50%,50% 50%}to{background-position:350% 50%,350% 50%}}
+.referral-form-group{margin-bottom:12px}
+.referral-form-group input,.referral-form-group textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:14px;color:var(--dark);background:var(--bg);outline:none;transition:border-color .15s}
+.referral-form-group input:focus,.referral-form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.1)}
+.referral-form-group textarea{min-height:80px;resize:vertical}
+
+/* ── FOOTER ─────────────────────────────────────────────────── */
+footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;background:var(--bg)}
+.footer-logo{font-size:16px;font-weight:700;color:var(--black)}
+.footer-logo span{color:var(--accent)}
+.footer-tagline{font-size:13px;color:var(--muted);margin-top:2px}
+.footer-links{display:flex;gap:24px;list-style:none}
+.footer-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--accent)}
+.footer-copy{font-size:13px;color:var(--muted)}
+
+/* ── COOKIE ─────────────────────────────────────────────────── */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:#1a1a1a;color:#fff;padding:16px 48px;z-index:999;display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid rgba(255,255,255,.1);transition:transform .3s}
+.cookie-banner.hidden{transform:translateY(100%)}
+.cookie-banner p{font-size:13px;color:rgba(255,255,255,.7)!important;line-height:1.5;margin:0}
+.cookie-accept{background:var(--accent);color:#fff;border:none;border-radius:6px;padding:8px 20px;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:inherit;flex-shrink:0;transition:opacity .15s}
+.cookie-accept:hover{opacity:.85}
+
+/* ── REVEAL ─────────────────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media(max-width:768px){
+.hero{padding:100px 20px 60px}
+.wrap,.wrap-wide{padding-left:20px;padding-right:20px}
+section{padding:64px 0}
+.trust-bar{padding:18px 20px}.trust-inner{gap:16px}
+.stats-bar{padding:28px 20px}.stats-inner{grid-template-columns:repeat(2,1fr)}
+.comparison-grid{grid-template-columns:1fr}
+.service-row{grid-template-columns:1fr}.service-row-left{border-right:none;border-bottom:1px solid var(--border)}
+.service-featured{grid-template-columns:1fr;padding:32px 24px}
+.ba-container{height:260px}
+.carousel-slide.active{grid-template-columns:1fr;gap:32px}
+.how-grid{grid-template-columns:1fr!important}.how-card{border-bottom:1px solid var(--border);border-right:none!important}
+.pricing-cards{grid-template-columns:1fr}
+.contact-grid{grid-template-columns:1fr;gap:44px}
+.form-row{grid-template-columns:1fr}
+.quote-banner{flex-direction:column}
+footer{flex-direction:column;align-items:flex-start;padding:32px 20px}
+.cta-banner{padding:64px 20px}
+.cookie-banner{flex-direction:column;padding:16px 20px;text-align:center}
+.carousel-cta{flex-direction:column}
+#partners .three-col{grid-template-columns:1fr!important}
+#partners .four-col{grid-template-columns:1fr 1fr!important}
+.testimonials-track-wrap::before,.testimonials-track-wrap::after{width:60px}
+}
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+
+<!-- FLOAT NAV -->
+<div class="float-nav-bar" id="floatNavBar">
+  <!-- LEFT: logo + dark toggle -->
+  <div class="float-nav-logo-wrap">
+    <a href="#" class="float-nav-logo">Queloric<span>.</span></a>
+    <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+  </div>
+  <!-- CENTER: pill with links -->
+  <div class="float-nav-pill fn-links-wrap">
+    <a href="#services" class="float-nav-link">
+      <span class="nav-mascot-wrap"><div class="mascot-body"><div class="mascot-eye mascot-eye-l"></div><div class="mascot-eye mascot-eye-r"></div><div class="mascot-cheek mascot-cheek-l"></div><div class="mascot-cheek mascot-cheek-r"></div></div><div class="mascot-tail"></div></span>
+      Services
+    </a>
+    <a href="#projects" class="float-nav-link">
+      <span class="nav-mascot-wrap"><div class="mascot-body"><div class="mascot-eye mascot-eye-l"></div><div class="mascot-eye mascot-eye-r"></div><div class="mascot-cheek mascot-cheek-l"></div><div class="mascot-cheek mascot-cheek-r"></div></div><div class="mascot-tail"></div></span>
+      Work
+    </a>
+    <a href="#how" class="float-nav-link">
+      <span class="nav-mascot-wrap"><div class="mascot-body"><div class="mascot-eye mascot-eye-l"></div><div class="mascot-eye mascot-eye-r"></div><div class="mascot-cheek mascot-cheek-l"></div><div class="mascot-cheek mascot-cheek-r"></div></div><div class="mascot-tail"></div></span>
+      Process
+    </a>
+    <a href="#pricing" class="float-nav-link">
+      <span class="nav-mascot-wrap"><div class="mascot-body"><div class="mascot-eye mascot-eye-l"></div><div class="mascot-eye mascot-eye-r"></div><div class="mascot-cheek mascot-cheek-l"></div><div class="mascot-cheek mascot-cheek-r"></div></div><div class="mascot-tail"></div></span>
+      Pricing
+    </a>
+    <a href="#faq" class="float-nav-link">
+      <span class="nav-mascot-wrap"><div class="mascot-body"><div class="mascot-eye mascot-eye-l"></div><div class="mascot-eye mascot-eye-r"></div><div class="mascot-cheek mascot-cheek-l"></div><div class="mascot-cheek mascot-cheek-r"></div></div><div class="mascot-tail"></div></span>
+      FAQ
+    </a>
+    <a href="#partners" class="float-nav-link float-nav-aff">
+      <span class="nav-mascot-wrap"><div class="mascot-body"><div class="mascot-eye mascot-eye-l"></div><div class="mascot-eye mascot-eye-r"></div><div class="mascot-cheek mascot-cheek-l"></div><div class="mascot-cheek mascot-cheek-r"></div></div><div class="mascot-tail"></div></span>
+      Affiliate
+    </a>
+  </div>
+  <!-- RIGHT: CTA + hamburger -->
+  <div style="display:flex;align-items:center;gap:10px;">
+    <a href="/quote" class="float-nav-cta">Build something →</a>
+    <button class="fn-hamburger" id="fnHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</div>
+<div class="fn-mobile" id="fnMobile">
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#projects" onclick="closeMobileMenu()">Work</a>
+  <a href="#how" onclick="closeMobileMenu()">Process</a>
+  <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
+  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+  <a href="#partners" style="color:#6366f1;font-weight:600;" onclick="closeMobileMenu()">Affiliate ✦</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <a href="/quote" class="fn-m-cta">Build something →</a>
+</div>
+
+<!-- HERO -->
+<div class="hero-section">
+  <div class="hero">
+    <div class="hero-rotating" id="heroRotating">
+      <div class="hero-rotating-item active">🚀 Fast. Affordable. Professional.</div>
+      <div class="hero-rotating-item">💡 AI-powered. Built for your business.</div>
+      <div class="hero-rotating-item">⚡ Live in days. Not months.</div>
+      <div class="hero-rotating-item">🌍 Serving clients across Europe.</div>
+      <div class="hero-rotating-item">🤖 Powered by Claude AI — the best model.</div>
+    </div>
+    <h1>Your business deserves a <span class="hl-paint">great website</span> and smarter <span class="hl">automation.</span></h1>
+    <p>Custom websites, AI chatbots, Telegram and Discord bots, and workflow automation — built fast, delivered in days, starting from 50€.</p>
+    <div class="hero-btns">
+      <a href="/quote" class="btn btn-accent">Get an instant quote →</a>
+      <a href="#services" class="btn btn-outline">See what we build</a>
+    </div>
+    <p class="hero-note">Takes 60 seconds. No commitment required.</p>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><span class="stat-num" data-target="50" data-suffix="€">0</span><span class="stat-label">Starting price</span></div>
+    <div class="stat-item"><span class="stat-num" data-target="5" data-suffix=" days">0</span><span class="stat-label">Average delivery</span></div>
+    <div class="stat-item"><span class="stat-num" data-target="100" data-suffix="%">0</span><span class="stat-label">Code ownership</span></div>
+    <div class="stat-item"><span class="stat-num" data-target="24" data-suffix="/7">0</span><span class="stat-label">AI uptime</span></div>
+  </div>
+</div>
+
+<!-- TRUST -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">⚡ <strong>Projects from 50€</strong>&nbsp;— no agency overhead</div>
+    <div class="trust-item">🚀 <strong>Live in days</strong>&nbsp;not months</div>
+    <div class="trust-item">🤖 <strong>Claude AI</strong>&nbsp;— best model available</div>
+    <div class="trust-item">📦 <strong>Full source code</strong>&nbsp;always included</div>
+    <div class="trust-item">💬 <strong>Reply within hours</strong>&nbsp;guaranteed</div>
+    <div class="trust-item">💳 <strong>Secure Stripe payments</strong>&nbsp;accepted</div>
+  </div>
+</div>
+
+<!-- COMPARISON -->
+<section>
+  <div class="wrap reveal">
+    <span class="label">Why Queloric</span>
+    <h2>Most businesses are <span class="painted">massively overpaying</span> for web development.</h2>
+    <p style="max-width:500px;">Agencies charge between 3,000€ and 15,000€+ for work done in days for a fraction of that. We cut the overhead, keep the quality.</p>
+    <div class="comparison-grid">
+      <div class="comp-col ours">
+        <div class="comp-price">50€ – 2,500+€</div>
+        <span class="comp-sub">Scoped to your project. Fixed price. No surprises.</span>
+        <ul class="comp-list">
+          <li><span class="comp-check">✓</span> Price agreed before work starts</li>
+          <li><span class="comp-check">✓</span> Delivered in days, not months</li>
+          <li><span class="comp-check">✓</span> You own the full source code</li>
+          <li><span class="comp-check">✓</span> Claude AI — best model available</li>
+          <li><span class="comp-check">✓</span> Works on any platform</li>
+          <li><span class="comp-check">✓</span> Direct line to the developer</li>
+          <li><span class="comp-check">✓</span> Revisions included on every project</li>
+        </ul>
+      </div>
+      <div class="vs-badge">VS</div>
+      <div class="comp-col theirs">
+        <div class="comp-price">3,000 to 15,000€</div>
+        <span class="comp-sub">Typical traditional agency cost.</span>
+        <ul class="comp-list">
+          <li><span class="comp-x">✕</span> Unpredictable scope creep</li>
+          <li><span class="comp-x">✕</span> 6–12 weeks to deliver</li>
+          <li><span class="comp-x">✕</span> You don't own the code</li>
+          <li><span class="comp-x">✕</span> Generic chatbot tools</li>
+          <li><span class="comp-x">✕</span> Extra fees per platform</li>
+          <li><span class="comp-x">✕</span> Account managers and ticket queues</li>
+          <li><span class="comp-x">✕</span> Changes billed at 100–200€/hr</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section-bg" id="services">
+  <div class="wrap-wide">
+    <span class="label reveal">What we build</span>
+    <h2 class="reveal reveal-delay-1">One team. Every digital service your <span class="highlight">business actually needs.</span></h2>
+    <p class="reveal reveal-delay-2" style="max-width:520px;">Instead of hiring three different specialists at agency rates, you get one team that handles websites, AI chatbots, bots and automation.</p>
+    <div class="services-list reveal">
+      <div class="service-featured">
+        <div>
+          <span class="service-icon" style="font-size:32px;display:block;margin-bottom:12px;">🌐</span>
+          <h3>Website Design &amp; Development</h3>
+          <p style="margin-bottom:20px;">Custom websites built from scratch — no templates, no page builders. Clean code, fast loading, mobile-first and SEO-ready from day one.</p>
+        </div>
+        <div class="browser-mockup">
+          <div class="browser-bar">
+            <div class="browser-dot" style="background:rgba(255,100,100,.5)"></div>
+            <div class="browser-dot" style="background:rgba(255,200,100,.5)"></div>
+            <div class="browser-dot" style="background:rgba(100,200,100,.5)"></div>
+            <div class="browser-url">yourclient.com</div>
+          </div>
+          <div class="browser-body">
+            <div class="skeleton" style="height:10px;width:52%"></div>
+            <div class="skeleton" style="height:6px;width:88%;margin-top:12px"></div>
+            <div class="skeleton" style="height:6px;width:74%"></div>
+            <div class="skeleton" style="height:6px;width:81%"></div>
+            <div style="display:flex;gap:8px;margin-top:16px">
+              <div class="skeleton" style="height:28px;width:80px;margin-bottom:0;border-radius:6px;background:rgba(79,70,229,.4)"></div>
+              <div class="skeleton" style="height:28px;width:62px;margin-bottom:0;border-radius:6px;opacity:.3"></div>
+            </div>
+            <div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+              <div class="skeleton" style="height:48px;margin-bottom:0;border-radius:6px"></div>
+              <div class="skeleton" style="height:48px;margin-bottom:0;border-radius:6px;opacity:.6"></div>
+              <div class="skeleton" style="height:48px;margin-bottom:0;border-radius:6px;opacity:.4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="service-row"><div class="service-row-left"><span class="service-icon">🤖</span><h3>AI Chatbot Development</h3></div><div class="service-row-right"><p>Powered by Claude AI. A chatbot that genuinely understands your customers — not a rigid script. Handles FAQs, bookings, support queries and lead capture 24/7, without any staff needed.</p></div></div>
+      <div class="service-row"><div class="service-row-left"><span class="service-icon">⚡</span><h3>Telegram &amp; Discord Bots</h3></div><div class="service-row-right"><p>Custom bots for your community or business. Automated responses, moderation, notifications and commands — built exactly to your spec with optional Claude AI integration.</p></div></div>
+      <div class="service-row"><div class="service-row-left"><span class="service-icon">🔄</span><h3>Workflow Automation</h3></div><div class="service-row-right"><p>Stop doing repetitive tasks manually. We connect your tools, automate your processes and save you hours every single week — from simple scripts to complex multi-step pipelines.</p></div></div>
+      <div class="service-row"><div class="service-row-left"><span class="service-icon">🛡️</span><h3>Website Management</h3></div><div class="service-row-right"><p>Monthly maintenance handled completely. Updates, backups, security monitoring and performance checks — so your site stays fast, safe and up to date without you lifting a finger.</p></div></div>
+      <div class="service-row"><div class="service-row-left"><span class="service-icon">📈</span><h3>SEO &amp; AI Content</h3></div><div class="service-row-right"><p>On-page SEO optimisation and AI-assisted content creation. Get found on Google with proper technical foundations and content that actually ranks — without paying agency prices.</p></div></div>
+      <div class="service-row"><div class="service-row-left"><span class="service-icon">🔗</span><h3>API &amp; Backend Development</h3></div><div class="service-row-right"><p>Custom REST APIs, database integrations and backend logic. Need your app to talk to another service or a custom data pipeline built? We handle the full stack end to end.</p></div></div>
+      <div class="service-row"><div class="service-row-left"><span class="service-icon">🎨</span><h3>Landing Page Design</h3></div><div class="service-row-right"><p>High-converting single-page designs for product launches, campaigns and lead generation. Fast to build, mobile-first, and optimised to turn visitors into enquiries.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE AFTER -->
+<section>
+  <div class="wrap reveal">
+    <span class="label">The difference</span>
+    <h2>Before Queloric. <span class="highlight">After Queloric.</span></h2>
+    <p style="max-width:500px;">Drag the slider to see the difference between a generic template website and a custom Queloric-built site.</p>
+    <div class="ba-section">
+      <div class="ba-container" id="baContainer">
+        <div class="ba-before">
+          <div class="ba-before-content">
+            <div class="ba-mockup-bad">
+              <div class="bad-topbar"><div class="bad-topbar-dot" style="background:#ff5f57"></div><div class="bad-topbar-dot" style="background:#febc2e"></div><div class="bad-topbar-dot" style="background:#28c840"></div><div class="bad-address">http://www.mybusiness.weebly.com</div></div>
+              <div class="bad-nav"><div class="bad-nav-logo">MY BIZNESS™</div><div class="bad-nav-links"><span class="bad-nav-link">HOME</span><span class="bad-nav-link">ABOUT</span><span class="bad-nav-link">CONTACT</span></div></div>
+              <div class="bad-marquee">🌟 WELCOME TO OUR WEBSITE!! BEST PRICES GUARANTEED!! 🌟</div>
+              <div class="bad-hero"><div class="bad-hero-title">WELCOME TO MY BIZNESS™</div><div class="bad-hero-sub">We are the #1 provider since 1998!!</div><div class="bad-hero-btn">CLICK HERE!!!</div></div>
+              <div class="bad-body"><div class="bad-counter">👁 VISITOR COUNT: 000847</div><div class="bad-content-row"><div class="bad-content-box"><div class="bad-content-title">SERVICES</div><div class="bad-content-text">We offer many great services</div></div><div class="bad-content-box"><div class="bad-content-title">ABOUT US</div><div class="bad-content-text">We are a business company</div></div><div class="bad-content-box"><div class="bad-content-title">CONTACT</div><div class="bad-content-text">Call us on our phone</div></div></div></div>
+              <div class="bad-footer">© 2009 MY BIZNESS™ · Best viewed in Internet Explorer</div>
+            </div>
+          </div>
+        </div>
+        <div class="ba-after" id="baAfter">
+          <div class="ba-after-content">
+            <div class="ba-mockup-good">
+              <div class="good-chrome"><div class="good-dot" style="background:rgba(255,100,100,.4)"></div><div class="good-dot" style="background:rgba(255,200,100,.4)"></div><div class="good-dot" style="background:rgba(100,200,100,.4)"></div><div class="good-url">queloric.com</div></div>
+              <div class="good-nav"><div class="good-logo-text">Queloric<span>.</span></div><div style="display:flex;gap:6px"><div style="background:rgba(255,255,255,.07);height:7px;width:22px;border-radius:2px"></div><div style="background:rgba(255,255,255,.07);height:7px;width:22px;border-radius:2px"></div><div style="background:rgba(255,255,255,.07);height:7px;width:22px;border-radius:2px"></div></div><div class="good-cta-btn">Quote →</div></div>
+              <div class="good-hero"><div class="good-badge">AI &amp; WEB AGENCY</div><div class="good-title"></div><div class="good-sub"></div><div class="good-sub2"></div><div class="good-btns"><div class="good-btn1"></div><div class="good-btn2"></div></div></div>
+              <div class="good-trust"><span>⚡ From 50€</span><span>🚀 2–5 days</span><span>📦 Own the code</span></div>
+              <div class="good-services"><div class="good-services-label">Services</div><div class="good-cards"><div class="good-card"><div class="good-card-icon">🌐</div><div class="good-card-line"></div></div><div class="good-card"><div class="good-card-icon">🤖</div><div class="good-card-line"></div></div><div class="good-card"><div class="good-card-icon">⚡</div><div class="good-card-line"></div></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="ba-divider" id="baDivider"></div>
+        <div class="ba-handle" id="baHandle">⟺</div>
+        <div class="ba-label before">Before</div>
+        <div class="ba-label after">After</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS CAROUSEL -->
+<section class="section-bg" id="projects">
+  <div class="wrap">
+    <span class="label reveal">Recent work</span>
+    <h2 class="reveal reveal-delay-1">Projects we've delivered.</h2>
+    <p class="reveal reveal-delay-2" style="max-width:500px;">A selection of recent client projects. Every one delivered on time, on budget, with full source code handed over.</p>
+    <div class="projects-carousel reveal">
+      <div class="carousel-track">
+        <div class="carousel-slide active">
+          <div><div class="slide-meta"><span class="slide-type">Website</span><span class="slide-status">✓ Delivered</span></div><div class="slide-title">Restaurant &amp; Booking Site</div><p class="slide-desc">Custom website with online booking system and menu management for a local restaurant. Mobile-first, SEO optimised, live in 4 days. The client saw a 40% increase in online reservations within the first month.</p><div class="slide-tags"><span class="tag">Custom HTML/CSS</span><span class="tag">Booking System</span><span class="tag">SEO</span><span class="tag">Mobile First</span></div></div>
+          <div class="site-preview"><div class="site-chrome"><div class="site-dot" style="background:#ff5f57"></div><div class="site-dot" style="background:#febc2e"></div><div class="site-dot" style="background:#28c840"></div><div class="site-url">restauraciapetit.sk</div></div><svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%"><rect width="480" height="280" fill="#1c1008"/><defs><linearGradient id="rg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0d0600"/><stop offset="100%" stop-color="#2a1200"/></linearGradient></defs><rect x="0" y="0" width="480" height="130" fill="url(#rg1)"/><rect x="0" y="0" width="480" height="36" fill="rgba(0,0,0,0.5)"/><text x="24" y="22" font-size="12" font-weight="700" fill="#f5e6c8" font-family="sans-serif">Reštaurácia Petit</text><text x="240" y="22" font-size="9" fill="rgba(245,230,200,0.4)" text-anchor="middle" font-family="sans-serif">Menu · Rezervácia · O nás · Kontakt</text><rect x="388" y="12" width="68" height="18" rx="4" fill="#c8860a"/><text x="422" y="24" font-size="9" fill="#fff" text-anchor="middle" font-family="sans-serif">Rezervovať</text><text x="240" y="68" font-size="9" fill="rgba(245,230,200,0.5)" text-anchor="middle" letter-spacing="4" font-family="sans-serif">FINE DINING · BANSKÁ BYSTRICA</text><text x="240" y="92" font-size="22" font-weight="700" fill="#f5e6c8" text-anchor="middle" font-family="sans-serif">Autentická Slovenská</text><text x="240" y="114" font-size="22" font-weight="700" fill="#f5e6c8" text-anchor="middle" font-family="sans-serif">Kuchyňa</text><line x1="200" y1="124" x2="280" y2="124" stroke="#c8860a" stroke-width="1" opacity="0.6"/><rect x="20" y="148" width="136" height="112" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/><text x="88" y="178" font-size="18" text-anchor="middle" font-family="sans-serif">🍽️</text><text x="88" y="200" font-size="11" font-weight="600" fill="#f5e6c8" text-anchor="middle" font-family="sans-serif">Menu</text><text x="88" y="216" font-size="9" fill="rgba(245,230,200,0.4)" text-anchor="middle" font-family="sans-serif">Sezónne špeciality</text><rect x="172" y="148" width="136" height="112" rx="6" fill="rgba(200,134,10,0.12)" stroke="rgba(200,134,10,0.3)" stroke-width="0.5"/><text x="240" y="178" font-size="18" text-anchor="middle" font-family="sans-serif">📅</text><text x="240" y="200" font-size="11" font-weight="600" fill="#f5e6c8" text-anchor="middle" font-family="sans-serif">Rezervácia</text><text x="240" y="216" font-size="9" fill="rgba(245,230,200,0.4)" text-anchor="middle" font-family="sans-serif">Online 24/7</text><rect x="324" y="148" width="136" height="112" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/><text x="392" y="178" font-size="18" text-anchor="middle" font-family="sans-serif">⭐</text><text x="392" y="200" font-size="11" font-weight="600" fill="#f5e6c8" text-anchor="middle" font-family="sans-serif">4.9 / 5</text><text x="392" y="216" font-size="9" fill="rgba(245,230,200,0.4)" text-anchor="middle" font-family="sans-serif">142 recenzií</text></svg></div>
+        </div>
+        <div class="carousel-slide">
+          <div><div class="slide-meta"><span class="slide-type">AI Chatbot</span><span class="slide-status">✓ Delivered</span></div><div class="slide-title">E-commerce Support Bot</div><p class="slide-desc">Claude AI chatbot embedded into an online store handling FAQs, order tracking and returns 24/7. Cut support tickets by 60% in the first two weeks. Customers get instant answers at any hour.</p><div class="slide-tags"><span class="tag">Claude AI</span><span class="tag">Shopify</span><span class="tag">Multi-Language</span><span class="tag">Lead Capture</span></div></div>
+          <div class="site-preview"><div class="site-chrome"><div class="site-dot" style="background:#ff5f57"></div><div class="site-dot" style="background:#febc2e"></div><div class="site-dot" style="background:#28c840"></div><div class="site-url">shopelite.sk — AI Support</div></div><svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%"><rect width="480" height="280" fill="#f8fafc"/><rect x="0" y="0" width="480" height="44" fill="#fff" stroke="#e2e8f0" stroke-width="0.5"/><circle cx="24" cy="22" r="10" fill="#4f46e5"/><text x="24" y="27" font-size="9" fill="#fff" text-anchor="middle" font-weight="700" font-family="sans-serif">Q</text><text x="42" y="20" font-size="11" font-weight="700" fill="#111" font-family="sans-serif">Claude AI Support</text><text x="42" y="33" font-size="9" fill="#16a34a" font-family="sans-serif">● Online · Odpovie okamžite</text><rect x="14" y="56" width="220" height="36" rx="4" fill="#eef2ff" stroke="#c7d2fe" stroke-width="0.5"/><text x="24" y="70" font-size="9" fill="#4f46e5" font-family="sans-serif">Dobrý deň! Ako vám môžem pomôcť?</text><text x="24" y="84" font-size="9" fill="#6366f1" font-family="sans-serif">Mám otázku k objednávke alebo produktu? 👋</text><rect x="246" y="102" width="200" height="24" rx="4" fill="#4f46e5"/><text x="256" y="118" font-size="9" fill="#fff" font-family="sans-serif">Kde je moja objednávka #5521?</text><rect x="14" y="136" width="260" height="48" rx="4" fill="#eef2ff" stroke="#c7d2fe" stroke-width="0.5"/><text x="24" y="150" font-size="9" fill="#4f46e5" font-family="sans-serif">Objednávka #5521 je na ceste! 📦</text><text x="24" y="164" font-size="9" fill="#4f46e5" font-family="sans-serif">Očakávaná dodávka: zajtra do 17:00 ✅</text><text x="24" y="178" font-size="9" fill="#6366f1" font-family="sans-serif">Chcete sledovať zásielku?</text><rect x="14" y="196" width="80" height="20" rx="10" fill="#fff" stroke="#c7d2fe" stroke-width="1"/><text x="54" y="210" font-size="8" fill="#4f46e5" text-anchor="middle" font-family="sans-serif">Sledovať</text><rect x="102" y="196" width="100" height="20" rx="10" fill="#fff" stroke="#c7d2fe" stroke-width="1"/><text x="152" y="210" font-size="8" fill="#4f46e5" text-anchor="middle" font-family="sans-serif">Kontaktovať podporu</text><rect x="210" y="196" width="80" height="20" rx="10" fill="#fff" stroke="#c7d2fe" stroke-width="1"/><text x="250" y="210" font-size="8" fill="#4f46e5" text-anchor="middle" font-family="sans-serif">Reklamácia</text><rect x="0" y="248" width="480" height="32" fill="#fff" stroke="#e2e8f0" stroke-width="0.5"/><rect x="12" y="256" width="400" height="18" rx="9" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="24" y="268" font-size="9" fill="#94a3b8" font-family="sans-serif">Napíšte správu...</text><rect x="424" y="254" width="44" height="20" rx="10" fill="#4f46e5"/><text x="446" y="268" font-size="9" fill="#fff" text-anchor="middle" font-family="sans-serif">→</text></svg></div>
+        </div>
+        <div class="carousel-slide">
+          <div><div class="slide-meta"><span class="slide-type">Discord Bot</span><span class="slide-status">✓ Delivered</span></div><div class="slide-title">Community Management Bot</div><p class="slide-desc">AI-powered Discord bot for a gaming community with 2,000+ members. Handles moderation, custom commands, role management and Claude AI Q&amp;A. Saved the admins hours of manual work every day.</p><div class="slide-tags"><span class="tag">Discord</span><span class="tag">Claude AI</span><span class="tag">Moderation</span><span class="tag">Auto Roles</span></div></div>
+          <div class="site-preview"><div class="site-chrome" style="background:#2b2d31;border-bottom-color:#1e1f22"><div class="site-dot" style="background:#ff5f57"></div><div class="site-dot" style="background:#febc2e"></div><div class="site-dot" style="background:#28c840"></div><div class="site-url" style="background:#1e1f22;border-color:#111;color:#6d6f78">Discord — GameZone Community</div></div><svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%"><rect width="480" height="280" fill="#313338"/><rect x="0" y="0" width="68" height="280" fill="#1e1f22"/><circle cx="34" cy="20" r="14" fill="#5865f2"/><text x="34" y="25" font-size="10" fill="#fff" text-anchor="middle" font-weight="700" font-family="sans-serif">GZ</text><rect x="68" y="0" width="120" height="280" fill="#2b2d31"/><text x="78" y="18" font-size="8" fill="#96989d" letter-spacing="1" font-family="sans-serif">GAMEZONE</text><rect x="68" y="24" width="120" height="22" fill="rgba(255,255,255,0.06)" rx="2"/><text x="84" y="38" font-size="10" fill="#fff" font-family="sans-serif"># general</text><text x="84" y="56" font-size="10" fill="#96989d" font-family="sans-serif"># announcements</text><text x="84" y="72" font-size="10" fill="#96989d" font-family="sans-serif"># off-topic</text><text x="78" y="94" font-size="8" fill="#96989d" letter-spacing="1" font-family="sans-serif">BOTY</text><text x="84" y="110" font-size="10" fill="#96989d" font-family="sans-serif">🤖 quelbot-cmds</text><rect x="198" y="12" width="272" height="68" rx="4" fill="rgba(88,101,242,0.1)"/><rect x="198" y="12" width="3" height="68" rx="2" fill="#5865f2"/><text x="210" y="26" font-size="8" fill="#5865f2" font-weight="700" font-family="sans-serif">QuelBot BOT</text><text x="210" y="40" font-size="9" fill="#fff" font-weight="700" font-family="sans-serif">Vitaj v GameZone! 🎮</text><text x="210" y="54" font-size="8" fill="#b5bac1" font-family="sans-serif">Členov: 2,847 · Zareaguj pre rolu</text><circle cx="210" cy="110" r="12" fill="#ed4245"/><text x="210" y="115" font-size="8" fill="#fff" text-anchor="middle" font-weight="700" font-family="sans-serif">M</text><text x="228" y="118" font-size="9" fill="#dcddde" font-family="sans-serif">!rank — kto vedie tento týždeň?</text><circle cx="210" cy="148" r="12" fill="#5865f2"/><text x="210" y="153" font-size="8" fill="#fff" text-anchor="middle" font-weight="700" font-family="sans-serif">Q</text><text x="228" y="156" font-size="9" fill="#dcddde" font-family="sans-serif">🏆 Top: xXProX (4,210) · Marek (3,891)</text><rect x="188" y="258" width="282" height="22" rx="4" fill="#383a40"/><text x="200" y="272" font-size="8" fill="#72767d" font-family="sans-serif">Správa #general</text></svg></div>
+        </div>
+        <div class="carousel-slide">
+          <div><div class="slide-meta"><span class="slide-type">Automation</span><span class="slide-status">✓ Delivered</span></div><div class="slide-title">Lead Generation Pipeline</div><p class="slide-desc">Automated workflow connecting contact form → CRM → email → Slack notifications. Zero manual data entry, saving 3+ hours per week. Every lead instantly tracked and followed up on.</p><div class="slide-tags"><span class="tag">n8n</span><span class="tag">CRM Integration</span><span class="tag">Slack</span><span class="tag">Email</span></div></div>
+          <div class="site-preview"><div class="site-chrome"><div class="site-dot" style="background:#ff5f57"></div><div class="site-dot" style="background:#febc2e"></div><div class="site-dot" style="background:#28c840"></div><div class="site-url">n8n workflow — Lead Pipeline</div></div><svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%"><defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#4f46e5" stroke-width="1.5" stroke-linecap="round"/></marker><marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round"/></marker><pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="0.8" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="480" height="280" fill="#1a1a2e"/><rect width="480" height="280" fill="url(#dots)"/><rect x="20" y="110" width="100" height="56" rx="8" fill="#1e1b4b" stroke="#4f46e5" stroke-width="1.5"/><rect x="20" y="110" width="100" height="18" rx="8" fill="#4f46e5"/><rect x="20" y="120" width="100" height="8" fill="#4f46e5"/><text x="70" y="123" font-size="8" fill="#fff" text-anchor="middle" font-weight="600" font-family="sans-serif">Webhook</text><text x="70" y="138" font-size="9" fill="#a5b4fc" text-anchor="middle" font-family="sans-serif">📋 Contact Form</text><line x1="120" y1="138" x2="160" y2="138" stroke="#4f46e5" stroke-width="1.5" marker-end="url(#arr)"/><rect x="160" y="110" width="100" height="56" rx="8" fill="#1e1b4b" stroke="#6366f1" stroke-width="1"/><text x="210" y="130" font-size="8" fill="#818cf8" text-anchor="middle" font-weight="600" font-family="sans-serif">🔀 Split</text><text x="210" y="146" font-size="8" fill="rgba(165,180,252,0.7)" text-anchor="middle" font-family="sans-serif">Route by service</text><line x1="260" y1="125" x2="310" y2="82" stroke="#4f46e5" stroke-width="1.2" marker-end="url(#arr)"/><line x1="260" y1="138" x2="310" y2="138" stroke="#4f46e5" stroke-width="1.2" marker-end="url(#arr)"/><line x1="260" y1="151" x2="310" y2="194" stroke="#4f46e5" stroke-width="1.2" marker-end="url(#arr)"/><rect x="310" y="56" width="90" height="48" rx="8" fill="#052e16" stroke="#16a34a" stroke-width="1"/><text x="355" y="76" font-size="8" fill="#4ade80" text-anchor="middle" font-weight="600" font-family="sans-serif">📊 CRM</text><rect x="310" y="112" width="90" height="48" rx="8" fill="#1e1b4b" stroke="#6366f1" stroke-width="1"/><text x="355" y="132" font-size="8" fill="#a5b4fc" text-anchor="middle" font-weight="600" font-family="sans-serif">📧 Email</text><rect x="310" y="168" width="90" height="48" rx="8" fill="#1a0d2e" stroke="#a855f7" stroke-width="1"/><text x="355" y="188" font-size="8" fill="#d8b4fe" text-anchor="middle" font-weight="600" font-family="sans-serif">💬 Slack</text><line x1="400" y1="80" x2="430" y2="138" stroke="#16a34a" stroke-width="1.2" marker-end="url(#arr2)"/><line x1="400" y1="136" x2="430" y2="138" stroke="#16a34a" stroke-width="1.2" marker-end="url(#arr2)"/><line x1="400" y1="192" x2="430" y2="138" stroke="#16a34a" stroke-width="1.2" marker-end="url(#arr2)"/><rect x="430" y="112" width="38" height="48" rx="8" fill="#052e16" stroke="#16a34a" stroke-width="1.5"/><text x="449" y="140" font-size="12" fill="#4ade80" text-anchor="middle" font-family="sans-serif">✓</text></svg></div>
+        </div>
+        <div class="carousel-slide">
+          <div><div class="slide-meta"><span class="slide-type">Website</span><span class="slide-status">✓ Delivered</span></div><div class="slide-title">Freelancer Portfolio</div><p class="slide-desc">Clean minimal portfolio for a graphic designer. Custom animations, project gallery, contact form and blog. Delivered in 3 days. The client landed two new clients within a week of launch.</p><div class="slide-tags"><span class="tag">Custom Design</span><span class="tag">Animations</span><span class="tag">Blog</span><span class="tag">Gallery</span></div></div>
+          <div class="site-preview"><div class="site-chrome"><div class="site-dot" style="background:#ff5f57"></div><div class="site-dot" style="background:#febc2e"></div><div class="site-dot" style="background:#28c840"></div><div class="site-url">martinkovac.eu</div></div><svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%"><rect width="480" height="280" fill="#0a0a0a"/><line x1="0" y1="40" x2="480" y2="40" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/><text x="24" y="25" font-size="12" font-weight="700" fill="#fff" font-family="sans-serif">MK.</text><text x="280" y="25" font-size="9" fill="rgba(255,255,255,0.3)" text-anchor="middle" font-family="sans-serif">Práce · O mne · Kontakt</text><text x="24" y="68" font-size="9" fill="rgba(255,255,255,0.2)" letter-spacing="3" font-family="sans-serif">GRAFICKÝ DIZAJNÉR</text><text x="24" y="90" font-size="22" font-weight="700" fill="#fff" font-family="sans-serif">Martin Kováč</text><text x="24" y="110" font-size="11" fill="rgba(255,255,255,0.35)" font-family="sans-serif">Branding · UI/UX · Motion Design</text><rect x="16" y="128" width="140" height="100" rx="6" fill="#141414" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/><rect x="16" y="128" width="140" height="66" rx="6" fill="#1a0a2e"/><text x="30" y="158" font-size="18" fill="#a855f7" font-family="sans-serif">◈</text><text x="24" y="204" font-size="9" font-weight="600" fill="#fff" font-family="sans-serif">Brand Identity</text><rect x="170" y="128" width="140" height="100" rx="6" fill="#141414" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/><rect x="170" y="128" width="140" height="66" rx="6" fill="#0a1a2e"/><rect x="190" y="146" width="60" height="6" rx="2" fill="rgba(99,102,241,0.4)"/><rect x="190" y="156" width="40" height="5" rx="2" fill="rgba(255,255,255,0.1)"/><text x="178" y="204" font-size="9" font-weight="600" fill="#fff" font-family="sans-serif">Web Design</text><rect x="324" y="128" width="140" height="100" rx="6" fill="#141414" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/><rect x="324" y="128" width="140" height="66" rx="6" fill="#1a1400"/><text x="370" y="168" font-size="28" fill="rgba(234,179,8,0.5)" text-anchor="middle" font-family="sans-serif">▷</text><text x="332" y="204" font-size="9" font-weight="600" fill="#fff" font-family="sans-serif">Motion Reel</text></svg></div>
+        </div>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-btn" id="carouselPrev">←</button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button class="carousel-btn" id="carouselNext">→</button>
+      </div>
+      <div class="carousel-cta">
+        <div><h3>Your project could be next.</h3><p>We're taking on new projects now. Get a fixed-price quote in 60 seconds.</p></div>
+        <a href="/quote" class="btn btn-outline" style="border-color:rgba(255,255,255,.3);color:#fff;background:rgba(255,255,255,.1);">Get a quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section id="how">
+  <div class="wrap">
+    <span class="label reveal">How we work</span>
+    <h2 class="reveal reveal-delay-1">Simple process. <span class="highlight">Serious results.</span></h2>
+    <p class="reveal reveal-delay-2" style="max-width:500px;">From your first message to a live product — here's what to expect when you work with Queloric.</p>
+    <div class="how-grid reveal">
+      <div class="how-card"><div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;"><div style="width:40px;height:40px;border-radius:10px;background:var(--accent-light);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">💬</div><span class="how-num" style="margin-bottom:0;">Step 01</span></div><h3>Tell us what you need</h3><p>Fill in the quote form with your project details — goals, timeline and any reference sites. The more you share, the more accurate and tailored the plan will be.</p></div>
+      <div class="how-card"><div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;"><div style="width:40px;height:40px;border-radius:10px;background:var(--accent-light);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🤝</div><span class="how-num" style="margin-bottom:0;">Step 02</span></div><h3>We discuss and agree</h3><p>We get back within hours to discuss your project and agree on a clear plan. No vague estimates — you know exactly what you're getting before anything starts.</p></div>
+      <div class="how-card"><div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;"><div style="width:40px;height:40px;border-radius:10px;background:var(--accent-light);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">👁️</div><span class="how-num" style="margin-bottom:0;">Step 03</span></div><h3>Preview before you pay</h3><p>A small 20€ refundable deposit lets us build a real preview for you to review and approve. The 20€ is deducted from your final price. If we can't deliver, it's refunded in full.</p></div>
+      <div class="how-card"><div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;"><div style="width:40px;height:40px;border-radius:10px;background:var(--accent-light);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">📦</div><span class="how-num" style="margin-bottom:0;">Step 04</span></div><h3>Delivered. You own it.</h3><p>Full handover of source code, credentials and documentation. Everything is yours — host it anywhere, modify it freely. No lock-in. Post-delivery support included.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section-bg" id="pricing">
+  <div class="wrap">
+    <span class="label reveal">Pricing</span>
+    <h2 class="reveal reveal-delay-1">Transparent ranges. <span class="highlight">Every project quoted individually.</span></h2>
+    <p class="reveal reveal-delay-2" style="max-width:560px;margin-bottom:56px;">We don't do fixed packages — every project is different. Get a quote and we'll send an exact price within hours.</p>
+    <div class="pricing-block">
+      <div class="pricing-section-title">🌐 Website Design &amp; Development</div>
+      <p class="pricing-section-sub">Price depends on number of pages, complexity and features required.</p>
+      <div class="pricing-cards">
+        <div class="pricing-card"><span class="pricing-tier">Simple Website</span><div class="pricing-range">130€ – 370€</div><p class="pricing-desc">1–3 pages</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> Custom design</li><li><span class="check">✓</span> Mobile responsive</li><li><span class="check">✓</span> Contact form</li><li><span class="check">✓</span> Basic SEO</li><li><span class="check">✓</span> 2–3 day delivery</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+        <div class="pricing-card popular"><div class="popular-badge">Most popular</div><span class="pricing-tier">Business Website</span><div class="pricing-range">370€ – 850€</div><p class="pricing-desc">4–8 pages</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> Full custom design</li><li><span class="check">✓</span> Multiple pages</li><li><span class="check">✓</span> On-page SEO</li><li><span class="check">✓</span> Contact / booking form</li><li><span class="check">✓</span> Full source code</li><li><span class="check">✓</span> 4–6 day delivery</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+        <div class="pricing-card"><span class="pricing-tier">E-commerce / Complex</span><div class="pricing-range">850€ – 2,300+€</div><p class="pricing-desc">Shop, bookings, custom features</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> E-commerce or booking</li><li><span class="check">✓</span> Payment integration</li><li><span class="check">✓</span> User accounts</li><li><span class="check">✓</span> Full CMS</li><li><span class="check">✓</span> Advanced SEO</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+      </div>
+    </div>
+    <div class="pricing-block">
+      <div class="pricing-section-title">🤖 AI Chatbot Development</div>
+      <p class="pricing-section-sub">Powered by Claude AI.</p>
+      <div class="pricing-cards">
+        <div class="pricing-card"><span class="pricing-tier">Basic Chatbot</span><div class="pricing-range">70€ – 140€</div><p class="pricing-desc">Simple FAQ handling</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> Embedded widget</li><li><span class="check">✓</span> Pre-set flow</li><li><span class="check">✓</span> Any platform</li><li><span class="check">✓</span> 2–3 day delivery</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+        <div class="pricing-card popular"><div class="popular-badge">Most popular</div><span class="pricing-tier">Custom Chatbot</span><div class="pricing-range">140€ – 320€</div><p class="pricing-desc">Trained on your business</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> Trained on your content</li><li><span class="check">✓</span> Multi-language</li><li><span class="check">✓</span> Custom branded design</li><li><span class="check">✓</span> Full source code</li><li><span class="check">✓</span> Lead capture</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+        <div class="pricing-card"><span class="pricing-tier">Advanced Chatbot</span><div class="pricing-range">320€ – 650+€</div><p class="pricing-desc">With integrations &amp; database</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> CRM integration</li><li><span class="check">✓</span> User authentication</li><li><span class="check">✓</span> Booking / scheduling</li><li><span class="check">✓</span> Analytics dashboard</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+      </div>
+    </div>
+    <div class="pricing-block">
+      <div class="pricing-section-title">⚡ Bots &amp; Automation</div>
+      <p class="pricing-section-sub">Telegram, Discord bots and workflow automation.</p>
+      <div class="pricing-cards">
+        <div class="pricing-card"><span class="pricing-tier">Simple Bot</span><div class="pricing-range">45€ – 90€</div><p class="pricing-desc">Basic commands</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> Custom commands</li><li><span class="check">✓</span> Auto responses</li><li><span class="check">✓</span> 1–2 day delivery</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+        <div class="pricing-card popular"><div class="popular-badge">Most popular</div><span class="pricing-tier">AI-Powered Bot</span><div class="pricing-range">110€ – 280€</div><p class="pricing-desc">Intelligent responses</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> Claude AI integration</li><li><span class="check">✓</span> Custom personality</li><li><span class="check">✓</span> Command system</li><li><span class="check">✓</span> Full source code</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+        <div class="pricing-card"><span class="pricing-tier">Workflow Automation</span><div class="pricing-range">75€ – 370+€</div><p class="pricing-desc">Automate repetitive tasks</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> Tool integrations</li><li><span class="check">✓</span> Custom scripts</li><li><span class="check">✓</span> Webhooks &amp; APIs</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+      </div>
+    </div>
+        <div class="pricing-block">
+      <div class="pricing-section-title">🔄 Other Services</div>
+      <p class="pricing-section-sub">Automation, management, SEO — all scoped per project.</p>
+      <div class="pricing-cards">
+        <div class="pricing-card"><span class="pricing-tier">Workflow Automation</span><div class="pricing-range">75€ – 370+€</div><p class="pricing-desc">Automate repetitive tasks</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> Tool integrations</li><li><span class="check">✓</span> Custom scripts</li><li><span class="check">✓</span> Webhooks &amp; APIs</li><li><span class="check">✓</span> Full source code</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+        <div class="pricing-card popular"><div class="popular-badge">Most popular</div><span class="pricing-tier">Website Management</span><div class="pricing-range">45€ – 140€/mo</div><p class="pricing-desc">Monthly maintenance</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> Content updates</li><li><span class="check">✓</span> Security monitoring</li><li><span class="check">✓</span> Weekly backups</li><li><span class="check">✓</span> Priority support</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+        <div class="pricing-card"><span class="pricing-tier">SEO &amp; Content</span><div class="pricing-range">75€ – 280+€</div><p class="pricing-desc">Rankings and visibility</p><hr class="pd"><ul class="pricing-features"><li><span class="check">✓</span> On-page SEO audit</li><li><span class="check">✓</span> Schema markup</li><li><span class="check">✓</span> AI content writing</li><li><span class="check">✓</span> Sitemap &amp; robots.txt</li></ul><a href="/quote" class="pricing-btn">Get a quote</a></div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:14px;color:var(--muted);">Not sure what you need? <a href="/quote" style="color:var(--accent);font-weight:500;">Answer a few quick questions</a> and we'll recommend the right approach.</p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="wrap" style="margin-bottom:48px;">
+    <span class="label reveal">What clients say</span>
+    <h2 class="reveal reveal-delay-1">Trusted by businesses <span class="highlight">across Europe.</span></h2>
+    <p class="reveal reveal-delay-2" style="max-width:500px;">Real feedback from real clients. Every project delivered on time, on budget, with full source code handed over.</p>
+  </div>
+  <div class="testimonials-track-wrap">
+    <div class="testimonials-track">
+      <div class="testimonial-card"><div style="display:flex;align-items:center;margin-bottom:12px"><div class="testimonial-avatar">JM</div><div><div class="testimonial-name">James Mitchell</div><div class="testimonial-handle">@jamesmitchell · London, UK</div></div></div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Queloric built our restaurant website in 3 days. The booking system works perfectly and we've seen a 40% increase in online reservations. Absolutely worth every cent."</p></div>
+      <div class="testimonial-card"><div style="display:flex;align-items:center;margin-bottom:12px"><div class="testimonial-avatar" style="background:#16a34a">SR</div><div><div class="testimonial-name">Sofia Reinhardt</div><div class="testimonial-handle">@sofiareinhardt · Berlin, DE</div></div></div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The AI chatbot handles 80% of our customer questions automatically. Our support team finally has time for complex cases. Game changer for our e-shop."</p></div>
+      <div class="testimonial-card"><div style="display:flex;align-items:center;margin-bottom:12px"><div class="testimonial-avatar" style="background:#f59e0b">AK</div><div><div class="testimonial-name">Alexei Kovrov</div><div class="testimonial-handle">@alexeikovrov · Amsterdam, NL</div></div></div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Fast, professional, and they actually deliver what they promise. Our Discord bot is running flawlessly for 2,400 members. Highly recommended."</p></div>
+      <div class="testimonial-card"><div style="display:flex;align-items:center;margin-bottom:12px"><div class="testimonial-avatar" style="background:#8b5cf6">ML</div><div><div class="testimonial-name">Marie Leclerc</div><div class="testimonial-handle">@marieleclerc · Paris, FR</div></div></div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I was skeptical about the price — it seemed too affordable for this quality. But the portfolio site they delivered is stunning. Already got two new clients from it."</p></div>
+      <div class="testimonial-card"><div style="display:flex;align-items:center;margin-bottom:12px"><div class="testimonial-avatar" style="background:#ef4444">TC</div><div><div class="testimonial-name">Thomas Christiansen</div><div class="testimonial-handle">@thomasc · Copenhagen, DK</div></div></div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The workflow automation saves us 4 hours every single week. Every lead goes straight to our CRM and Slack. No more manual copy-pasting ever again."</p></div>
+      <div class="testimonial-card"><div style="display:flex;align-items:center;margin-bottom:12px"><div class="testimonial-avatar" style="background:#0891b2">NP</div><div><div class="testimonial-name">Nina Petrov</div><div class="testimonial-handle">@ninapetrov · Vienna, AT</div></div></div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"We needed a chatbot trained on our legal documentation. Queloric delivered exactly that — it handles intake questions 24/7 and routes every case perfectly."</p></div>
+      <div class="testimonial-card"><div style="display:flex;align-items:center;margin-bottom:12px"><div class="testimonial-avatar" style="background:#dc2626">LW</div><div><div class="testimonial-name">Luca Weidmann</div><div class="testimonial-handle">@lucaweidmann · Zurich, CH</div></div></div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Three days from brief to live website. Clean code, mobile perfect, SEO ready. I showed it to my developer friend and he was genuinely impressed."</p></div>
+      <div class="testimonial-card"><div style="display:flex;align-items:center;margin-bottom:12px"><div class="testimonial-avatar" style="background:#7c3aed">EO</div><div><div class="testimonial-name">Elena Okonkwo</div><div class="testimonial-handle">@elenaokonkwo · Stockholm, SE</div></div></div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Communication was excellent throughout. They pushed back with better ideas when needed. The final product exceeded what I initially imagined."</p></div>
+      <!-- duplicate set for seamless loop -->
+      <div class="testimonial-card"><div style="display:flex;align-items:center;margin-bottom:12px"><div class="testimonial-avatar">JM</div><div><div class="testimonial-name">James Mitchell</div><div class="testimonial-handle">@jamesmitchell · London, UK</div></div></div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Queloric built our restaurant website in 3 days. The booking system works perfectly and we've seen a 40% increase in online reservations. Absolutely worth every cent."</p></div>
+      <div class="testimonial-card"><div style="display:flex;align-items:center;margin-bottom:12px"><div class="testimonial-avatar" style="background:#16a34a">SR</div><div><div class="testimonial-name">Sofia Reinhardt</div><div class="testimonial-handle">@sofiareinhardt · Berlin, DE</div></div></div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The AI chatbot handles 80% of our customer questions automatically. Our support team finally has time for complex cases. Game changer for our e-shop."</p></div>
+      <div class="testimonial-card"><div style="display:flex;align-items:center;margin-bottom:12px"><div class="testimonial-avatar" style="background:#f59e0b">AK</div><div><div class="testimonial-name">Alexei Kovrov</div><div class="testimonial-handle">@alexeikovrov · Amsterdam, NL</div></div></div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Fast, professional, and they actually deliver what they promise. Our Discord bot is running flawlessly for 2,400 members. Highly recommended."</p></div>
+      <div class="testimonial-card"><div style="display:flex;align-items:center;margin-bottom:12px"><div class="testimonial-avatar" style="background:#8b5cf6">ML</div><div><div class="testimonial-name">Marie Leclerc</div><div class="testimonial-handle">@marieleclerc · Paris, FR</div></div></div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I was skeptical about the price — it seemed too affordable for this quality. But the portfolio site they delivered is stunning. Already got two new clients from it."</p></div>
+      <div class="testimonial-card"><div style="display:flex;align-items:center;margin-bottom:12px"><div class="testimonial-avatar" style="background:#ef4444">TC</div><div><div class="testimonial-name">Thomas Christiansen</div><div class="testimonial-handle">@thomasc · Copenhagen, DK</div></div></div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The workflow automation saves us 4 hours every single week. Every lead goes straight to our CRM and Slack. No more manual copy-pasting ever again."</p></div>
+      <div class="testimonial-card"><div style="display:flex;align-items:center;margin-bottom:12px"><div class="testimonial-avatar" style="background:#0891b2">NP</div><div><div class="testimonial-name">Nina Petrov</div><div class="testimonial-handle">@ninapetrov · Vienna, AT</div></div></div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"We needed a chatbot trained on our legal documentation. Queloric delivered exactly that — it handles intake questions 24/7 and routes every case perfectly."</p></div>
+      <div class="testimonial-card"><div style="display:flex;align-items:center;margin-bottom:12px"><div class="testimonial-avatar" style="background:#dc2626">LW</div><div><div class="testimonial-name">Luca Weidmann</div><div class="testimonial-handle">@lucaweidmann · Zurich, CH</div></div></div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Three days from brief to live website. Clean code, mobile perfect, SEO ready. I showed it to my developer friend and he was genuinely impressed."</p></div>
+      <div class="testimonial-card"><div style="display:flex;align-items:center;margin-bottom:12px"><div class="testimonial-avatar" style="background:#7c3aed">EO</div><div><div class="testimonial-name">Elena Okonkwo</div><div class="testimonial-handle">@elenaokonkwo · Stockholm, SE</div></div></div><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Communication was excellent throughout. They pushed back with better ideas when needed. The final product exceeded what I initially imagined."</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap reveal">
+    <span class="label">FAQ</span>
+    <h2>Questions we hear a lot.</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-question">How does pricing work exactly?<span class="faq-icon">+</span></button><div class="faq-answer"><p>The ranges on this page are estimates. Every project is scoped individually and we send a fixed quote before any work starts. You know the exact price before you commit.</p></div></div>
+      <div class="faq-item"><button class="faq-question">Do I own the code after delivery?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Yes, completely. Full source code is handed over on every project. You can host it anywhere, modify it, give it to another developer. Zero lock-in.</p></div></div>
+      <div class="faq-item"><button class="faq-question">What is the 20€ deposit for?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Before we invest time building your preview, we ask for a small 20€ refundable deposit. This is fully deducted from your final price. If we can't deliver, the deposit is refunded in full.</p></div></div>
+      <div class="faq-item"><button class="faq-question">How do I pay?<span class="faq-icon">+</span></button><div class="faq-answer"><p>We accept Stripe (cards, Apple Pay, Google Pay), bank transfer (IBAN) or cryptocurrency (USDT, USDC, BTC or ETH). We provide an invoice for every project.</p></div></div>
+      <div class="faq-item"><button class="faq-question">How fast is delivery really?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Most simpler projects deliver in 2–3 days. Standard websites and chatbots 3–5 days. Complex projects are scoped with a timeline agreed upfront.</p></div></div>
+      <div class="faq-item"><button class="faq-question">What AI model powers the chatbots?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Claude AI by Anthropic — the most capable and accurate large language model for natural conversation. Real, helpful answers — not frustrating dead ends.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section-bg" id="contact">
+  <div class="wrap">
+    <span class="label reveal">Get in touch</span>
+    <h2 class="reveal reveal-delay-1">Tell us what you need. <span class="highlight">We'll handle the rest.</span></h2>
+    <div class="quote-banner reveal reveal-delay-2">
+      <div><h3>Want a faster, more detailed quote?</h3><p>Answer a few quick questions and get a personalised estimate in 60 seconds.</p></div>
+      <a href="/quote" class="btn btn-accent" style="white-space:nowrap;">Get instant quote →</a>
+    </div>
+    <div class="contact-grid" style="margin-top:48px;">
+      <div>
+        <form id="contactForm" action="https://send.pageclip.co/rUdgox3XHfWA6ZrLbQLhinYuhAEvD7Tl" class="pageclip-form" method="post">
+          <div class="form-row">
+            <div class="form-group"><label>Your name</label><input type="text" name="name" placeholder="John Smith" required></div>
+            <div class="form-group"><label>Email address</label><input type="email" name="email" placeholder="john@company.com" required></div>
+          </div>
+          <div class="form-group"><label>Service needed</label><select name="service" required><option value="" disabled selected>Select a service...</option><option>Website Design &amp; Development</option><option>AI Chatbot</option><option>Telegram / Discord Bot</option><option>Workflow Automation</option><option>Website Management</option><option>SEO &amp; Content</option><option>API / Backend Development</option><option>Something else</option></select></div>
+          <div class="form-group"><label>Budget range (optional)</label><select name="budget"><option value="" disabled selected>Select a range...</option><option>Under 100€</option><option>100–300€</option><option>300–600€</option><option>600–1,000€</option><option>1,000+€</option><option>Not sure yet</option></select></div>
+          <div class="form-group"><label>Tell us about your project</label><textarea name="message" placeholder="Describe what you need, your timeline, requirements and any reference links..." required></textarea></div>
+          <button type="submit" class="btn btn-accent pageclip-form__submit" style="width:100%;justify-content:center;"><span>Send message →</span></button>
+          <p class="form-note">We'll send a fixed-price quote within a few hours. No commitment required.</p>
+        </form>
+      </div>
+      <div class="contact-info">
+        <div class="contact-info-item"><div class="contact-info-label">Response time</div><div class="contact-info-value">Within a few hours</div><div class="contact-info-sub">Same day on most days</div></div>
+        <div class="contact-info-item"><div class="contact-info-label">Quote turnaround</div><div class="contact-info-value">Same day</div><div class="contact-info-sub">Detailed scope and fixed price</div></div>
+        <div class="contact-info-item"><div class="contact-info-label">Typical delivery</div><div class="contact-info-value">2–5 business days</div><div class="contact-info-sub">Depends on complexity</div></div>
+        <div class="contact-info-item"><div class="contact-info-label">Payment</div><div class="contact-info-value">Stripe, bank transfer or crypto</div><div class="contact-info-sub">Card · IBAN · USDT, USDC, BTC, ETH</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <h2>Your competitors already have a better website. <span style="color:var(--accent);">Let's fix that.</span></h2>
+  <p>Tell us what you need and we'll send a fixed-price quote today.</p>
+  <a href="/quote" class="btn btn-accent" style="font-size:16px;padding:14px 36px;">Get an instant quote →</a>
+  <div class="cta-badges"><span class="cta-badge">✓ 60 second quote</span><span class="cta-badge">✓ Fixed pricing</span><span class="cta-badge">✓ Live in days</span><span class="cta-badge">✓ You own the code</span><span class="cta-badge">✓ Projects from 50€</span></div>
+</div>
+
+<!-- AFFILIATE — last section before footer -->
+<section id="partners" style="padding:0;background:var(--bg);position:relative;overflow:hidden;border-top:1px solid var(--border);">
+  <div class="affiliate-aurora"><div class="affiliate-aurora-layer"></div><div class="affiliate-aurora-layer affiliate-aurora-layer-2"></div></div>
+  <div class="wrap" style="padding-top:88px;padding-bottom:88px;position:relative;z-index:1;">
+    <div style="text-align:center;margin-bottom:64px;" class="reveal">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:var(--accent-light);border:1px solid var(--accent);border-radius:20px;padding:6px 16px;margin-bottom:20px;"><span style="font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.08em;text-transform:uppercase;">✦ Affiliate Program</span></div>
+      <h2 style="margin-bottom:14px;">Refer a client. <span class="highlight">Get paid.</span></h2>
+      <p style="color:var(--mid);max-width:480px;margin:0 auto;font-size:16px;">Know a business that needs a website or AI chatbot? Send them our way — earn 15% on every project that closes.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px;" class="three-col reveal">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px 24px;"><div style="width:36px;height:36px;border-radius:10px;background:var(--accent-light);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--accent);margin-bottom:16px;">1</div><h3 style="font-size:16px;margin-bottom:8px;">Apply below</h3><p style="font-size:14px;line-height:1.65;margin:0;color:var(--muted);">Fill in a quick form. We review every application personally and respond within 24 hours.</p></div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px 24px;"><div style="width:36px;height:36px;border-radius:10px;background:var(--accent-light);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--accent);margin-bottom:16px;">2</div><h3 style="font-size:16px;margin-bottom:8px;">Share your link</h3><p style="font-size:14px;line-height:1.65;margin:0;color:var(--muted);">You get a unique referral link and access to your own dashboard. Share it anywhere.</p></div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px 24px;"><div style="width:36px;height:36px;border-radius:10px;background:var(--accent-light);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--accent);margin-bottom:16px;">3</div><h3 style="font-size:16px;margin-bottom:8px;">Collect commissions</h3><p style="font-size:14px;line-height:1.65;margin:0;color:var(--muted);">Earn 15% on every closed project. Hit 10 referrals and the next 5 pay 20%.</p></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:48px;border-radius:12px;overflow:hidden;border:1px solid var(--border);" class="four-col reveal">
+      <div style="background:var(--surface);padding:24px 20px;text-align:center;"><div style="font-size:32px;font-weight:700;color:var(--accent);letter-spacing:-.03em;line-height:1;margin-bottom:6px;">15%</div><div style="font-size:12px;color:var(--muted);">Base commission</div></div>
+      <div style="background:var(--surface);padding:24px 20px;text-align:center;border-left:1px solid var(--border);"><div style="font-size:32px;font-weight:700;color:#16a34a;letter-spacing:-.03em;line-height:1;margin-bottom:6px;">20%</div><div style="font-size:12px;color:var(--muted);">After 10 referrals</div></div>
+      <div style="background:var(--surface);padding:24px 20px;text-align:center;border-left:1px solid var(--border);"><div style="font-size:32px;font-weight:700;color:var(--black);letter-spacing:-.03em;line-height:1;margin-bottom:6px;">40€</div><div style="font-size:12px;color:var(--muted);">Minimum payout</div></div>
+      <div style="background:var(--surface);padding:24px 20px;text-align:center;border-left:1px solid var(--border);"><div style="font-size:32px;font-weight:700;color:var(--black);letter-spacing:-.03em;line-height:1;margin-bottom:6px;">72h</div><div style="font-size:12px;color:var(--muted);">Payout window</div></div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:48px;max-width:640px;margin:0 auto;" class="reveal">
+      <h3 style="font-size:20px;margin-bottom:8px;text-align:center;">Apply to become an affiliate</h3>
+      <p style="color:var(--muted);text-align:center;font-size:14px;margin-bottom:28px;">No experience needed. We accept anyone with genuine motivation to refer clients.</p>
+      <form id="referralForm" onsubmit="submitReferral(event)">
+        <div class="referral-form-group"><input type="text" id="ref-name" placeholder="Your full name" required></div>
+        <div class="referral-form-group"><input type="email" id="ref-email" placeholder="Your email address" required></div>
+        <div class="referral-form-group"><textarea id="ref-how" placeholder="How do you plan to find and refer clients?" required></textarea></div>
+        <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center;padding:14px;" id="refSubmitBtn"><span>Apply to affiliate program →</span></button>
+        <p id="refMsg" style="font-size:13px;margin-top:12px;display:none;text-align:center;"></p>
+      </form>
+      <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:16px;">Paid via bank transfer or crypto (USDT, USDC, BTC, ETH)</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div><div class="footer-logo">Queloric<span>.</span></div><div class="footer-tagline">AI &amp; Web Development Agency</div></div>
+  <ul class="footer-links"><li><a href="#services">Services</a></li><li><a href="#projects">Work</a></li><li><a href="#how">Process</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li><li><a href="#partners">Affiliate</a></li><li><a href="#contact">Contact</a></li></ul>
+  <div class="footer-copy">© 2026 Queloric. All rights reserved.</div>
+</footer>
+
+<div class="cookie-banner" id="cookieBanner">
+  <p>🍪 This site uses essential cookies to function properly. By continuing to browse you agree to their use.</p>
+  <button class="cookie-accept" id="cookieAccept">Got it</button>
+</div>
+
+<script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+<script>
+(function(){
+// ── PROGRESS BAR ──
+const progressBar = document.getElementById('progress-bar');
+window.addEventListener('scroll', function(){
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  if(total > 0) progressBar.style.width = (window.scrollY / total * 100) + '%';
+});
+
+// ── DARK MODE ──
+const darkToggleBtn = document.getElementById('darkToggle');
+const html = document.documentElement;
+const savedTheme = localStorage.getItem('theme') || 'light';
+html.setAttribute('data-theme', savedTheme);
+darkToggleBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+darkToggleBtn.addEventListener('click', function(){
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  darkToggleBtn.textContent = next === 'dark' ? '☀️' : '🌙';
+});
+
+// ── FLOAT NAV ──
+const fnHamburger = document.getElementById('fnHamburger');
+const fnMobile = document.getElementById('fnMobile');
+fnHamburger.addEventListener('click', function(){
+  fnMobile.classList.toggle('open');
+});
+document.querySelectorAll('.float-nav-link').forEach(function(a){
+  a.addEventListener('click', function(){
+    document.querySelectorAll('.float-nav-link').forEach(function(b){ b.classList.remove('fnl-active'); });
+    a.classList.add('fnl-active');
+    fnMobile.classList.remove('open');
+  });
+});
+// Scroll-based active highlight
+window.addEventListener('scroll', function(){
+  const sections = ['services','projects','how','pricing','faq','partners','contact'];
+  let current = '';
+  sections.forEach(function(id){
+    const el = document.getElementById(id);
+    if(el && window.scrollY >= el.offsetTop - 130) current = id;
+  });
+  document.querySelectorAll('.float-nav-link').forEach(function(a){
+    a.classList.remove('fnl-active');
+    const href = a.getAttribute('href');
+    if(href === '#' + current) a.classList.add('fnl-active');
+  });
+});
+
+// ── HERO ROTATING TEXT ──
+const rotatingItems = document.querySelectorAll('.hero-rotating-item');
+let currentRotating = 0;
+setInterval(function(){
+  rotatingItems[currentRotating].classList.remove('active');
+  currentRotating = (currentRotating + 1) % rotatingItems.length;
+  rotatingItems[currentRotating].classList.add('active');
+}, 3000);
+
+// ── STAT COUNTERS ──
+let counted = false;
+function animateCounters(){
+  if(counted) return;
+  const statsBar = document.querySelector('.stats-bar');
+  if(statsBar && statsBar.getBoundingClientRect().top < window.innerHeight){
+    counted = true;
+    document.querySelectorAll('.stat-num').forEach(function(el){
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      let current = 0;
+      const step = target / 50;
+      const timer = setInterval(function(){
+        current = Math.min(current + step, target);
+        el.textContent = Math.round(current) + suffix;
+        if(current >= target) clearInterval(timer);
+      }, 30);
+    });
+  }
+}
+window.addEventListener('scroll', animateCounters);
+animateCounters();
+
+// ── SCROLL REVEAL ──
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); revealObserver.unobserve(e.target); }});
+}, {threshold: .08, rootMargin: '0px 0px -20px 0px'});
+reveals.forEach(function(el){ revealObserver.observe(el); });
+
+// ── BEFORE/AFTER SLIDER ──
+const baContainer = document.getElementById('baContainer');
+const baAfter = document.getElementById('baAfter');
+const baDivider = document.getElementById('baDivider');
+const baHandle = document.getElementById('baHandle');
+let isDragging = false;
+function setSlider(x){
+  const rect = baContainer.getBoundingClientRect();
+  const pct = Math.max(5, Math.min(95, (x - rect.left) / rect.width * 100));
+  baAfter.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+  baDivider.style.left = pct + '%';
+  baHandle.style.left = pct + '%';
+}
+baContainer.addEventListener('mousedown', function(e){ isDragging = true; setSlider(e.clientX); });
+window.addEventListener('mousemove', function(e){ if(isDragging) setSlider(e.clientX); });
+window.addEventListener('mouseup', function(){ isDragging = false; });
+baContainer.addEventListener('touchstart', function(e){ isDragging = true; setSlider(e.touches[0].clientX); }, {passive:true});
+window.addEventListener('touchmove', function(e){ if(isDragging) setSlider(e.touches[0].clientX); }, {passive:true});
+window.addEventListener('touchend', function(){ isDragging = false; });
+
+// ── CAROUSEL ──
+const slides = document.querySelectorAll('.carousel-slide');
+const dotsContainer = document.getElementById('carouselDots');
+let currentSlide = 0;
+let carouselTimer;
+slides.forEach(function(_, i){
+  const dot = document.createElement('button');
+  dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+  dot.addEventListener('click', function(){ goToSlide(i); });
+  dotsContainer.appendChild(dot);
+});
+function goToSlide(index){
+  slides[currentSlide].classList.remove('active');
+  dotsContainer.children[currentSlide].classList.remove('active');
+  currentSlide = (index + slides.length) % slides.length;
+  slides[currentSlide].classList.add('active');
+  dotsContainer.children[currentSlide].classList.add('active');
+  resetTimer();
+}
+function resetTimer(){ clearInterval(carouselTimer); carouselTimer = setInterval(function(){ goToSlide(currentSlide + 1); }, 5000); }
+document.getElementById('carouselPrev').addEventListener('click', function(){ goToSlide(currentSlide - 1); });
+document.getElementById('carouselNext').addEventListener('click', function(){ goToSlide(currentSlide + 1); });
+resetTimer();
+
+// ── FAQ ──
+document.querySelectorAll('.faq-question').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    const item = btn.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); i.querySelector('.faq-answer').style.maxHeight = '0'; });
+    if(!isOpen){ item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+  });
+});
+
+// ── SMOOTH SCROLL ──
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click', function(e){
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t) t.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+// ── COOKIE BANNER ──
+const cookieBanner = document.getElementById('cookieBanner');
+if(localStorage.getItem('cookies_ok')) cookieBanner.classList.add('hidden');
+document.getElementById('cookieAccept').addEventListener('click', function(){
+  localStorage.setItem('cookies_ok', '1');
+  cookieBanner.classList.add('hidden');
+});
+
+// ── PAGECLIP DISCORD HOOK ──
+const WEBHOOK = 'WEBHOOK_PLACEHOLDER';
+document.getElementById('contactForm').addEventListener('pageclip-submit', async function(e){
+  try {
+    const d = e.detail;
+    await fetch(WEBHOOK, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({embeds:[{title:'📩 New Contact Form — Queloric', color:0x4f46e5, fields:[{name:'👤 Name', value:d.name||'N/A', inline:true},{name:'📧 Email', value:d.email||'N/A', inline:true},{name:'🛠️ Service', value:d.service||'N/A', inline:true},{name:'💰 Budget', value:d.budget||'N/A', inline:true},{name:'📝 Message', value:d.message||'N/A'}], footer:{text:'Queloric · queloric.com'}, timestamp:new Date().toISOString()}]})});
+  } catch(err){}
+});
+
+
+})();
+
+function closeMobileMenu(){ document.getElementById('fnMobile').classList.remove('open'); }
+
+async function submitReferral(e){
+  e.preventDefault();
+  const btn = document.getElementById('refSubmitBtn');
+  const msg = document.getElementById('refMsg');
+  btn.disabled = true;
+  btn.querySelector('span').textContent = 'Sending...';
+  const name  = document.getElementById('ref-name').value;
+  const email = document.getElementById('ref-email').value;
+  const how   = document.getElementById('ref-how').value;
+  try {
+    await fetch('WEBHOOK_PLACEHOLDER', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({embeds:[{title:'🤝 New Partner Application — Queloric', color:0x4f46e5, fields:[{name:'👤 Name', value:name, inline:true},{name:'📧 Email', value:email, inline:true},{name:'📝 Plan', value:how}], footer:{text:'Queloric Partner Applications'}, timestamp:new Date().toISOString()}]})});
+    msg.style.display = 'block'; msg.style.color = '#16a34a';
+    msg.textContent = '✓ Application sent! We will review and get back to you within 24 hours.';
+    btn.style.display = 'none';
+  } catch(err){
+    msg.style.display = 'block'; msg.style.color = '#ef4444';
+    msg.textContent = 'Something went wrong. Please try again.';
+    btn.disabled = false; btn.querySelector('span').textContent = 'Apply to affiliate program →';
+  }
+}
+</script>
+</body>
+</html>
