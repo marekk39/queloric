@@ -5,11 +5,9 @@ import { connectToDatabase } from "@/lib/mongodb";
 import Partner from "@/models/Partner";
 
 export const authOptions: NextAuthOptions = {
-  session: { strategy: "jwt" },
-  pages: { signIn: "/login" },
   providers: [
     CredentialsProvider({
-      name: "Credentials",
+      name: "credentials",
       credentials: {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
@@ -19,40 +17,49 @@ export const authOptions: NextAuthOptions = {
 
         await connectToDatabase();
 
-        const partner = await Partner.findOne({ email: credentials.email.toLowerCase() });
+        const partner = await Partner.findOne({
+          email: credentials.email.toLowerCase(),
+          status: "active",
+        });
+
         if (!partner) return null;
 
-        const passwordMatch = await bcrypt.compare(credentials.password, partner.password);
-        if (!passwordMatch) return null;
+        const isValid = await bcrypt.compare(
+          credentials.password,
+          partner.password
+        );
 
-        if (partner.status !== "active") return null;
+        if (!isValid) return null;
 
         return {
           id: partner._id.toString(),
-          name: partner.name,
           email: partner.email,
+          name: partner.name,
           refCode: partner.refCode,
-          status: partner.status,
+          role: partner.email === process.env.ADMIN_EMAIL ? "admin" : "partner",
         };
       },
     }),
   ],
+  session: { strategy: "jwt" },
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
-        token.refCode = (user as { refCode?: string }).refCode;
-        token.status = (user as { status?: string }).status;
+        token.refCode = (user as any).refCode;
+        token.role = (user as any).role;
       }
       return token;
     },
     async session({ session, token }) {
-      if (token && session.user) {
-        (session.user as { id?: string }).id = token.id as string;
-        (session.user as { refCode?: string }).refCode = token.refCode as string;
-        (session.user as { status?: string }).status = token.status as string;
+      if (session.user) {
+        (session.user as any).id = token.id;
+        (session.user as any).refCode = token.refCode;
+        (session.user as any).role = token.role;
       }
       return session;
     },
   },
+  pages: { signIn: "/login" },
+  secret: process.env.NEXTAUTH_SECRET,
 };
